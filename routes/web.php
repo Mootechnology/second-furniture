@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::view('/', 'frontend.index');
-Route::view('/category', 'frontend.category');
-Route::view('/about', 'frontend.about');
-Route::view('/allproducts', 'frontend.allproducts');
-Route::view('/cart', 'frontend.cart');
-Route::view('/checkout', 'frontend.checkout');
-Route::view('/contact', 'frontend.contact');
-Route::view('/faq', 'frontend.faq');
-Route::view('/single-product', 'frontend.single-product');
-Route::view('/wishlist', 'frontend.wishlist');
+Route::view('/', 'frontend.index')->name('index');
+Route::view('/category', 'frontend.category')->name('category');
+Route::view('/about', 'frontend.about')->name('about');
+Route::view('/allproducts', 'frontend.allproducts')->name('allproducts');
+Route::view('/cart', 'frontend.cart')->name('cart');
+Route::view('/checkout', 'frontend.checkout')->name('checkout');
+Route::view('/contact', 'frontend.contact')->name('contact');
+Route::view('/faq', 'frontend.faq')->name('faq');
+Route::view('/single-product', 'frontend.single-product')->name('single-product');
+Route::view('/wishlist', 'frontend.wishlist')->name('wishlist');

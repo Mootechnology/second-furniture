@@ -1,8 +1,7 @@
 @extends('frontend.layout.app')
 @section('customCss')
-heloworld
-@endsection
 
+@endsection
 
 @section('content')
 <!-- banner part start-->
