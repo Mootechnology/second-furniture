@@ -5,29 +5,29 @@
     <!-- START:: TOP Banner -->
     <section class="top-banner">
       <div class="top-banner-img">
-        <img src="./assets/images/breadcrumb1.png" alt="Banner" class="img-fluid">
+        <img src="./frontend/assets/images/breadcrumb1.png" alt="Banner" class="img-fluid">
         <div class="text-container">
           <h2>Wishlist</h2>
           <p><a href="index.html"> Home </a>> Whishlist</p>
         </div>
-      </div>       
+      </div>
     </section>
     <!-- END:: TOP Banner -->
-    
+
     <!-- START:: Wish list -->
     <section class="container-fluid mt-3 mb-3">
-      
+
       <div class="row px-3">
         <div class="col-md-6 border wishlist_products d-flex align-items-center py-3">
-            
+
             <div class="cross mr-3">
               <a href="#"><i class="fa-solid fa-xmark"></i></a>
             </div>
-            
+
             <div class="wish_product mr-3">
-              <img src="assets/images/product/product_1.png" width="120px" height="120px" alt="wish_product">
+              <img src="frontend/assets/images/product/product_1.png" width="120px" height="120px" alt="wish_product">
             </div>
-            
+
             <div class="wish_description">
               <h5>Product Name</h5>
               <h5>£200</h5>

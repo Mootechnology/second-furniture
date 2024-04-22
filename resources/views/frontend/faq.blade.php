@@ -5,19 +5,19 @@
     <!-- START:: TOP Banner -->
     <section class="top-banner">
       <div class="top-banner-img">
-        <img src="{{asset('./assets/images/breadcrumb1.png')}}" alt="Banner" class="img-fluid">
+        <img src="{{asset('./frontend/assets/images/breadcrumb1.png')}}" alt="Banner" class="img-fluid">
         <div class="text-container">
           <h2>FAQ</h2>
           <p class="lead" style="color: #fff;">Find answers to common questions about our furniture products.</p>
         </div>
-      </div>       
+      </div>
     </section>
     <!-- END:: TOP Banner -->
 
     <!-- START: FAQ Section -->
     <div class="container mb-5 mt-5">
       <div class="row">
-  
+
         <!-- Section 1 - Living Room Furniture -->
         <div class="col-md-6"> <!-- Adjusted width to col-md-6 -->
           <div class="card">
@@ -44,7 +44,7 @@
                 <div id="faq1Collapse" class="collapse" aria-labelledby="faq1Header" data-parent="#livingRoomCollapse">
                   <p>Once your order has been shipped, you will receive an email with a tracking number. You can use this tracking number to monitor the status of your delivery.</p>
                 </div>
-  
+
                 <!-- FAQ Item 2 - How can I make a complaint? -->
                 <div class="faq-item d-flex justify-content-between align-items-center">
                   <h5 class="mb-0">
@@ -59,13 +59,13 @@
                 <div id="faq2Collapse" class="collapse" aria-labelledby="faq2Header" data-parent="#livingRoomCollapse">
                   <p>If you have any issues or complaints about your order, please contact our customer service team through our <a href="contact.html">contact page</a>. We will be happy to assist you.</p>
                 </div>
-  
+
                 <!-- Add more FAQ items as needed -->
               </div>
             </div>
           </div>
         </div>
-  
+
         <!-- Section 2 - Delivery -->
         <div class="col-md-6">
           <div class="card">
@@ -92,7 +92,7 @@
                 <div id="faqDelivery1Collapse" class="collapse" aria-labelledby="faqDelivery1Header" data-parent="#deliveryCollapse">
                   <p>We offer various delivery options, including standard and express delivery. Choose the one that suits you best.</p>
                 </div>
-  
+
                 <!-- FAQ Item 2 - Tracking Orders -->
                 <div class="faq-item d-flex justify-content-between align-items-center">
                   <h5 class="mb-0">
@@ -111,12 +111,12 @@
             </div>
           </div>
         </div>
-  
+
       </div>
-  
+
       <!-- New Row for Payment and Refunds & Returns -->
       <div class="row mt-4">
-  
+
         <!-- Section 3 - Payment -->
         <div class="col-md-6">
           <div class="card">
@@ -143,7 +143,7 @@
                 <div id="faqPayment1Collapse" class="collapse" aria-labelledby="faqPayment1Header" data-parent="#paymentCollapse">
                   <p>We accept various payment methods, including credit cards, PayPal, and other online payment services.</p>
                 </div>
-  
+
                 <!-- FAQ Item 2 - Payment Security -->
                 <div class="faq-item d-flex justify-content-between align-items-center">
                   <h5 class="mb-0">
@@ -162,7 +162,7 @@
             </div>
           </div>
         </div>
-  
+
         <!-- Section 4 - Refunds & Returns -->
         <div class="col-md-6">
           <div class="card">
@@ -189,7 +189,7 @@
                 <div id="faqReturns1Collapse" class="collapse" aria-labelledby="faqReturns1Header" data-parent="#returnsCollapse">
                   <p>Our return policy allows you to return items within 30 days of purchase. Please review our <a href="return-policy.html">return policy</a> for more details.</p>
                 </div>
-  
+
                 <!-- FAQ Item 2 - Refund Process -->
                 <div class="faq-item d-flex justify-content-between align-items-center">
                   <h5 class="mb-0">
@@ -208,7 +208,7 @@
             </div>
           </div>
         </div>
-  
+
       </div>
     </div>
     <!-- END: FAQ Section -->

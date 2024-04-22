@@ -8,12 +8,12 @@
     <!-- START:: TOP Banner -->
     <section class="top-banner">
         <div class="top-banner-img">
-          <img src="{{ asset('./assets/images/breadcrumb1.png')}}" alt="Banner" class="img-fluid">
+          <img src="{{ asset('./frontend/assets/images/breadcrumb1.png')}}" alt="Banner" class="img-fluid">
           <div class="text-container">
             <h2>Category</h2>
             <p><a href="index.html"> Home </a>> Category</p>
           </div>
-        </div>       
+        </div>
       </section>
       <!-- END:: TOP Banner -->
 
@@ -126,7 +126,7 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    
+
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="top-bar-container bg-light px-4 py-2">
@@ -141,7 +141,7 @@
                                         <option class="list" value="2">product</option>
                                     </select>
                                 </div>
-        
+
                                 <div class="single_product_menu d-flex">
                                     <div class="input-group">
                                         <input style="color: black;" type="text" class="form-control" placeholder="search" aria-describedby="inputGroupPrepend">
@@ -157,7 +157,7 @@
                     <div class="row align-items-center latest_product_inner">
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <a href="single-product.html"><img src="{{ asset('assets/images/product/product_1.png')}}" alt=""></a>
+                                <a href="single-product.html"><img src="{{ asset('frontend/assets/images/product/product_1.png')}}" alt=""></a>
                                 <div class="single_product_text">
                                     <h4>Quartz Belt Watch</h4>
                                     <h3>£150.00</h3>
@@ -168,7 +168,7 @@
                         </div>
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <a href="single-product.html"><img src="{{ asset('assets/images/product/product_2.png')}}" alt=""></a>
+                                <a href="single-product.html"><img src="{{ asset('frontend/assets/images/product/product_2.png')}}" alt=""></a>
                                 <div class="single_product_text">
                                     <h4>Quartz Belt Watch</h4>
                                     <h3>£150.00</h3>
@@ -179,7 +179,7 @@
                         </div>
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <a href="single-product.html"><img src="{{ asset('assets/images/product/product_3.png')}}" alt=""></a>
+                                <a href="single-product.html"><img src="{{ asset('frontend/assets/images/product/product_3.png')}}" alt=""></a>
                                 <div class="single_product_text">
                                     <h4>Quartz Belt Watch</h4>
                                     <h3>£150.00</h3>
@@ -190,7 +190,7 @@
                         </div>
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <a href="single-product.html"><img src="{{ asset('assets/images/product/product_4.png')}}" alt=""></a>
+                                <a href="single-product.html"><img src="{{ asset('frontend/assets/images/product/product_4.png')}}" alt=""></a>
                                 <div class="single_product_text">
                                     <h4>Quartz Belt Watch</h4>
                                     <h3>£150.00</h3>
@@ -201,7 +201,7 @@
                         </div>
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <a href="single-product.html"><img src="{{ asset('assets/images/product/product_2.png')}}" alt=""></a>
+                                <a href="single-product.html"><img src="{{ asset('frontend/assets/images/product/product_2.png')}}" alt=""></a>
                                 <div class="single_product_text">
                                     <h4>Quartz Belt Watch</h4>
                                     <h3>£150.00</h3>
@@ -212,7 +212,7 @@
                         </div>
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <a href="single-product.html"><img src="{{ asset('assets/images/product/product_6.png')}}" alt=""></a>
+                                <a href="single-product.html"><img src="{{ asset('frontend/assets/images/product/product_6.png')}}" alt=""></a>
                                 <div class="single_product_text">
                                     <h4>Quartz Belt Watch</h4>
                                     <h3>£150.00</h3>
@@ -223,7 +223,7 @@
                         </div>
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <a href="single-product.html"><img src="{{ asset('assets/images/product/product_7.png')}}" alt=""></a>
+                                <a href="single-product.html"><img src="{{ asset('frontend/assets/images/product/product_7.png')}}" alt=""></a>
                                 <div class="single_product_text">
                                     <h4>Quartz Belt Watch</h4>
                                     <h3>£150.00</h3>
@@ -234,7 +234,7 @@
                         </div>
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <a href="single-product.html"><img src="{{ asset('assets/images/product/product_8.png')}}" alt=""></a>
+                                <a href="single-product.html"><img src="{{ asset('frontend/assets/images/product/product_8.png')}}" alt=""></a>
                                 <div class="single_product_text">
                                     <h4>Quartz Belt Watch</h4>
                                     <h3>£150.00</h3>
@@ -245,7 +245,7 @@
                         </div>
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <a href="single-product.html"><img src="{{ asset('assets/images/product/product_2.png')}}" alt=""></a>
+                                <a href="single-product.html"><img src="{{ asset('frontend/assets/images/product/product_2.png')}}" alt=""></a>
                                 <div class="single_product_text">
                                     <h4>Quartz Belt Watch</h4>
                                     <h3>£150.00</h3>
@@ -299,35 +299,35 @@
             <div class="col-lg-12">
                 <div class="best_product_slider owl-carousel">
                     <div class="single_product_item">
-                        <a href="single-product.html"><img src="{{ asset('assets/images/product/product_1.png')}}" alt=""></a>
+                        <a href="single-product.html"><img src="{{ asset('frontend/assets/images/product/product_1.png')}}" alt=""></a>
                         <div class="single_product_text">
                             <h4>Quartz Belt Watch</h4>
                             <h3>$150.00</h3>
                         </div>
                     </div>
                     <div class="single_product_item">
-                      <a href="single-product.html"><img src="{{ asset('assets/images/product/product_2.png')}}" alt=""></a>
+                      <a href="single-product.html"><img src="{{ asset('frontend/assets/images/product/product_2.png')}}" alt=""></a>
                         <div class="single_product_text">
                             <h4>Quartz Belt Watch</h4>
                             <h3>$150.00</h3>
                         </div>
                     </div>
                     <div class="single_product_item">
-                      <a href="single-product.html"><img src="{{ asset('assets/images/product/product_3.png')}}" alt=""></a>
+                      <a href="single-product.html"><img src="{{ asset('frontend/assets/images/product/product_3.png')}}" alt=""></a>
                         <div class="single_product_text">
                             <h4>Quartz Belt Watch</h4>
                             <h3>$150.00</h3>
                         </div>
                     </div>
                     <div class="single_product_item">
-                      <a href="single-product.html"><img src="{{ asset('assets/images/product/product_4.png')}}" alt=""></a>
+                      <a href="single-product.html"><img src="{{ asset('frontend/assets/images/product/product_4.png')}}" alt=""></a>
                         <div class="single_product_text">
                             <h4>Quartz Belt Watch</h4>
                             <h3>$150.00</h3>
                         </div>
                     </div>
                     <div class="single_product_item">
-                      <a href="single-product.html"><img src="{{ asset('assets/images/product/product_5.png')}}" alt=""></a>
+                      <a href="single-product.html"><img src="{{ asset('frontend/assets/images/product/product_5.png')}}" alt=""></a>
                         <div class="single_product_text">
                             <h4>Quartz Belt Watch</h4>
                             <h3>$150.00</h3>

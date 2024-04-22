@@ -5,12 +5,12 @@
     <!-- START:: TOP Banner -->
     <section class="top-banner">
       <div class="top-banner-img">
-        <img src="{{asset('./assets/images/breadcrumb1.png')}}" alt="Banner" class="img-fluid">
+        <img src="{{asset('./frontend/assets/images/breadcrumb1.png')}}" alt="Banner" class="img-fluid">
         <div class="text-container">
           <h2>Contact</h2>
           <p><a href="index.html"> Home </a>> Contact</p>
         </div>
-      </div>       
+      </div>
     </section>
     <!-- END:: TOP Banner -->
 
@@ -41,7 +41,7 @@
             <a href="#" class="fab fa-twitter"></a>
             <a href="#" class="fab fa-youtube"></a>
           </div>
-          
+
         </div>
         <div class="col-lg-8 col-sm-12">
           <iframe
@@ -68,7 +68,7 @@
 
   </section>
   <!-- START: Contact Section -->
-    
+
     <!-- START:: News Letter -->
     <section class="subscribe_area">
       <div class="container">

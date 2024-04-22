@@ -8,9 +8,9 @@
     />
     <title>Furni Mart</title>
     <!-- START:: Styles -->
-    <link rel="stylesheet" href=" {{ asset('assets/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href=" {{ asset('frontend/assets/css/bootstrap.min.css')}}" />
     <!-- owl carousel CSS -->
-    <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}} " />
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/owl.carousel.min.css')}} " />
     <!-- font awesome CSS -->
     <link
       rel="stylesheet"
@@ -20,13 +20,13 @@
       referrerpolicy="no-referrer"
     />
     <!-- swiper CSS -->
-    <link rel="stylesheet" href="{{asset('assets/css/slick.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/css/price_rangs.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/css/nice-select.css')}}" />
-    
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/slick.css')}}" />
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/price_rangs.css')}}" />
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/nice-select.css')}}" />
+
     <!-- style CSS -->
-    <link rel="stylesheet" href=" {{asset('assets/css/style.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/css/homebanner.css')}}">
+    <link rel="stylesheet" href=" {{asset('frontend/assets/css/style.css')}}" />
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/homebanner.css')}}">
     <!-- END:: Styles -->
     <!-- component -->
     <script src="footer.js"></script>
@@ -40,9 +40,9 @@
         <div class="row align-items-center">
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg navbar-light">
-              
-              <a class="navbar-brand" href="index.html"><img src="{{asset('assets/images/logo.svg')}}" alt="logo" /></a>
-              
+
+              <a class="navbar-brand" href="index.html"><img src="{{asset('frontend/assets/images/logo.svg')}}" alt="logo" /></a>
+
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="menu_icon"><i  style="color: #78909c;" class="fas fa-bars"></i></span>
               </button>
@@ -115,11 +115,11 @@
 
 
     @yield('content')
-    
-    
-    
-    
-    
+
+
+
+
+
     <!-- START:: Footer -->
     <footer class="footer_part">
         <div class="container">
@@ -165,9 +165,9 @@
                         </ul>
                     </div>
                 </div>
-                
+
             </div>
-            
+
         </div>
         <div class="copyright_part">
             <div class="container">
@@ -193,27 +193,27 @@
     <!-- END:: Footer -->
 
     <!-- START:: JS -->
-    <script src="{{asset('assets/js/jquery-1.12.1.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/jquery-1.12.1.min.js')}}"></script>
     <!-- popper js -->
 
     {{-- coustom Js --}}
     @yield('customJs')
-    <script src="{{asset('assets/js/popper.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/popper.min.js')}}"></script>
     <!-- bootstrap js -->
-    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/bootstrap.min.js')}}"></script>
     <!-- easing js -->
-    <script src="{{asset('assets/js/jquery.magnific-popup.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/jquery.magnific-popup.js')}}"></script>
     <!-- particles js -->
-    <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('assets/js/jquery.nice-select.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/jquery.nice-select.min.js')}}"></script>
     <!-- slick js -->
-    <script src="{{asset('assets/js/jquery.counterup.min.js')}}"></script>
-    <script src="{{asset('assets/js/slick.min.js')}}"></script>
-    <script src="{{asset('assets/js/jquery.ajaxchimp.min.js')}}"></script>
-    <script src="{{asset('assets/js/jquery.form.js')}}"></script>
-    <script src="{{asset('assets/js/jquery.validate.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/jquery.counterup.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/slick.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/jquery.ajaxchimp.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/jquery.form.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/jquery.validate.min.js')}}"></script>
     <!-- custom js -->
-    <script src="{{asset('assets/js/custom.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/custom.js')}}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous" ></script>

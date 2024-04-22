@@ -5,12 +5,12 @@
     <!-- START:: TOP Banner -->
     <section class="top-banner">
       <div class="top-banner-img">
-        <img src="{{('./assets/images/breadcrumb1.png')}}" alt="Banner" class="img-fluid">
+        <img src="{{('./frontend/assets/images/breadcrumb1.png')}}" alt="Banner" class="img-fluid">
         <div class="text-container">
           <h2>Cart</h2>
           <p><a href="index.html"> Home </a>> Cart</p>
         </div>
-      </div>       
+      </div>
     </section>
     <!-- END:: TOP Banner -->
 
@@ -26,7 +26,7 @@
             <th class="text-right">Price</th>
             <th class="text-right">Total</th>
           </tr>
-          
+
           <tr class="item-row">
             <td> <img src="http://placehold.it/50x50"/></td>
             <td>
@@ -67,7 +67,7 @@
       </div>
     </section>
     <!-- END: Cart Section -->
-   
+
     <!-- START:: News Letter -->
     <section class="subscribe_area">
       <div class="container">
@@ -91,4 +91,3 @@
     @endsection
     @section('customJs')
     @endsection
-   

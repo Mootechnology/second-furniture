@@ -4,6 +4,6 @@
         class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">{{$value}}</textarea>
     <div class="fv-plugins-message-container invalid-feedback"></div>
 </div>
-@error($error)
+@error($errors)
     <span class="text-danger">{{ $message }}</span>
 @enderror
