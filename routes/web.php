@@ -37,6 +37,22 @@ Route::controller(AuthController::class)
         Route::get('logout', 'logout')->name('logout');
     });
 
+Route::withoutMiddleware()->group(function () {
+
+    Route::view('/', 'frontend.index')->name('index');
+    Route::view('/category', 'frontend.category')->name('category');
+    Route::view('/about', 'frontend.about')->name('about');
+    Route::view('/allproducts', 'frontend.allproducts')->name('allproducts');
+    Route::view('/cart', 'frontend.cart')->name('cart');
+    Route::view('/checkout', 'frontend.checkout')->name('checkout');
+    Route::view('/contact', 'frontend.contact')->name('contact');
+    Route::view('/faq', 'frontend.faq')->name('faq');
+    Route::view('/single-product', 'frontend.single-product')->name('single-product');
+    Route::view('/wishlist', 'frontend.wishlist')->name('wishlist');
+});
+
+
+
 Route::middleware('auth')->group(function () {
     Route::controller(UserController::class)
         ->prefix('user')
@@ -83,7 +99,7 @@ Route::middleware('auth')->group(function () {
         });
 
 
-        Route::controller(ParentCategoryController::class)
+    Route::controller(ParentCategoryController::class)
         ->prefix('parent/category')
         ->name('parent.category.')
         ->group(function () {
@@ -93,9 +109,7 @@ Route::middleware('auth')->group(function () {
             Route::get('edit/{parentCategory}', 'edit')->name('edit');
             Route::post('update/{parentCategory}', 'update')->name('update');
             Route::get('delete/{parentCategory}', 'destroy')->name('delete');
-        });
-
-    ;
+        });;
     Route::controller(ChildCategoryController::class)
         ->prefix('child/category')
         ->name('child.category.')
@@ -107,7 +121,7 @@ Route::middleware('auth')->group(function () {
             Route::post('update/{childCategory}', 'update')->name('update');
             Route::get('delete/{childCategory}', 'destroy')->name('delete');
         });
-        Route::controller(ColorController::class)
+    Route::controller(ColorController::class)
         ->prefix('color')
         ->name('color.')
         ->group(function () {
@@ -116,7 +130,7 @@ Route::middleware('auth')->group(function () {
             Route::post('store', 'store')->name('store');
             Route::get('delete/{color}', 'destroy')->name('delete');
         });
-        Route::controller(ProductController::class)
+    Route::controller(ProductController::class)
         ->prefix('product')
         ->name('product.')
         ->group(function () {
@@ -127,18 +141,5 @@ Route::middleware('auth')->group(function () {
             Route::get('edit/{product}', 'edit')->name('edit');
             Route::post('update/{product}', 'update')->name('update');
             Route::get('delete/{product}', 'destroy')->name('delete');
-
         });
-
 });
-
-Route::view('/', 'frontend.index')->name('index');
-Route::view('/category', 'frontend.category')->name('category');
-Route::view('/about', 'frontend.about')->name('about');
-Route::view('/allproducts', 'frontend.allproducts')->name('allproducts');
-Route::view('/cart', 'frontend.cart')->name('cart');
-Route::view('/checkout', 'frontend.checkout')->name('checkout');
-Route::view('/contact', 'frontend.contact')->name('contact');
-Route::view('/faq', 'frontend.faq')->name('faq');
-Route::view('/single-product', 'frontend.single-product')->name('single-product');
-Route::view('/wishlist', 'frontend.wishlist')->name('wishlist');

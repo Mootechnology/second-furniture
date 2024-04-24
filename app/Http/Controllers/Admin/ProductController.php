@@ -27,8 +27,7 @@ class ProductController extends Controller
     public function index(ProductDatatable $productDataTable)
     {
 
-        return $productDataTable->render('admin.product.index',[$productDataTable]);
-
+        return $productDataTable->render('admin.product.index', [$productDataTable]);
     }
 
     /**
@@ -36,17 +35,19 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create():View
+    public function create(): View
     {
         $parentCategories = ParentCategory::all();
         $childCategories = ChildCategory::all();
         $color = Color::all();
 
-        return view('admin.product.create')->with(['parentCategories' => $parentCategories,
-    'childCategories'=>$childCategories,
-    'color'=>$color ]
-    );
-
+        return view('admin.product.create')->with(
+            [
+                'parentCategories' => $parentCategories,
+                'childCategories' => $childCategories,
+                'color' => $color
+            ]
+        );
     }
 
     /**
@@ -55,55 +56,50 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, StoreProductRequest $storerequest):RedirectResponse
+    public function store(Request $request, StoreProductRequest $storerequest): RedirectResponse
     {
 
 
 
 
         try {
-               $validatedData =  $storerequest->validated();
-               $product = Product::create($validatedData);
+            $validatedData =  $storerequest->validated();
+            $product = Product::create($validatedData);
 
-             // Convert color array to JSON before storing
-             $validatedData['color'] = $request->input('color_id', []);
-          if(!empty($request->size))
-          {
-
+            // Convert color array to JSON before storing
+            $validatedData['color'] = $request->input('color_id', []);
+            if (!empty($request->size)) {
 
 
-            foreach($request->size as $size)
-            {
 
-                if(!empty($size['name']))
-                {
+                foreach ($request->size as $size) {
 
-                $saveSize = new productSize;
-                 $saveSize->name = $size['name'];
-                 $saveSize->price = !empty($size['price']) ? $size['price'] : 0;
-                 $saveSize->product_id = $product->id;
-                $saveSize->save();
+                    if (!empty($size['name'])) {
+
+                        $saveSize = new productSize;
+                        $saveSize->name = $size['name'];
+                        $saveSize->price = !empty($size['price']) ? $size['price'] : 0;
+                        $saveSize->product_id = $product->id;
+                        $saveSize->save();
+                    }
                 }
-
-
             }
-          }
-
-
-
-
-
-            //  dd($p);
             if (isset($request->image)) {
                 $product->addMedia(storage_path('tmp/uploads/' . $request->image))->toMediaCollection('product.image');
             }
+            if (isset($request->multiImage)) {
+                foreach ($request->multiImage as $image) {
+                    $product->addMedia(storage_path('tmp/uploads/' . $image))->toMediaCollection('product.other.image');
+                }
+            }
+
+
             if ($product) {
                 return redirect()->route('product.index')->withSuccess('Product successfully created');
             } else {
                 return back()->withError($product->getMessage());
             }
         } catch (Exception $ex) {
-            // dd($ex->getMessage());
             return back()->withError($ex->getMessage());
         }
     }
@@ -125,21 +121,21 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product):View
+    public function edit(Product $product): View
     {
         $parentCategories = ParentCategory::all();
         $childCategories = ChildCategory::all();
         $color = Color::all();
-        $size =productSize::all();
+        $size = productSize::all();
         return view('admin.product.edit')->with(
             [
-                 'product' => $product,
-                 'childCategories' =>$childCategories,
-                 'parentCategories' => $parentCategories,
-                 'color' => $color,
-                 'size' => $size,
+                'product' => $product,
+                'childCategories' => $childCategories,
+                'parentCategories' => $parentCategories,
+                'color' => $color,
+                'size' => $size,
             ]
-            );
+        );
     }
 
     /**
@@ -149,14 +145,14 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UpdateProductRequest $updateProductRequest, Product $product):RedirectResponse
+    public function update(Request $request, UpdateProductRequest $updateProductRequest, Product $product): RedirectResponse
     {
 
 
-          try{
-              $product->update($updateProductRequest->validated());
+        try {
+            $product->update($updateProductRequest->validated());
 
-              foreach ($request['size'] as $sizeId => $sizeData) {
+            foreach ($request['size'] as $sizeId => $sizeData) {
                 // /  dd($request['size']);
                 $name = $sizeData['name'];
                 $price = $sizeData['price'];
@@ -178,24 +174,37 @@ class ProductController extends Controller
                     $productSize->save();
                 }
             }
-            if(isset($request['image']) ==null) {
+            if (isset($request['image']) == null) {
 
                 $product->clearMediaCollection('product.image');
                 // dd($product);
-            } else{
+            } else {
                 if (!file_exists(storage_path('tmp/uploads/' . $request['image']))) {
                     return redirect()->route('product.index')->withSuccess('Product Updated Successfully');
                 }
                 $product->media()->delete();
                 $product->addMedia(storage_path('tmp/uploads/' . $request['image']))->toMediaCollection('product.image');
             }
-            if($product) {
+            if (isset($request['multiImage']) == null) {
+
+                $product->clearMediaCollection('product.other.image');
+                // dd($product);
+            } else {
+                if (!file_exists(storage_path('tmp/uploads/' . $request['multiImage']))) {
+                    return redirect()->route('product.index')->withSuccess('Product Updated Successfully');
+                }
+                $product->media()->delete();
+                foreach ($request->multiImage as $multiImage) {
+                    $product->addMedia(storage_path('tmp/uploads/' . $multiImage))->toMediaCollection('product.other.image');
+                }
+            }
+
+            if ($product) {
                 return redirect()->route('product.index')->withSuccess('Product successfully Updated');
             }
-          }
-          catch(Exception $ex) {
+        } catch (Exception $ex) {
             return back()->withError($ex->getMessage());
-          }
+        }
     }
 
     /**
@@ -204,7 +213,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product):RedirectResponse
+    public function destroy(Product $product): RedirectResponse
     {
         try {
             $product->media()->delete();
