@@ -55,20 +55,41 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProductRequest $request):RedirectResponse
+    public function store(Request $request, StoreProductRequest $storerequest):RedirectResponse
     {
 
 
-        //  dd($request->all());
+
 
         try {
-               $validatedData =  $request->validated();
+               $validatedData =  $storerequest->validated();
+               $product = Product::create($validatedData);
+
              // Convert color array to JSON before storing
-             $validatedData['color'] = $request->input('color', []);
-             $validatedData['size'] = $request->input('size', []);
+             $validatedData['color'] = $request->input('color_id', []);
+          if(!empty($request->size))
+          {
 
 
-            $product = Product::create($validatedData);
+
+            foreach($request->size as $size)
+            {
+
+                if(!empty($size['name']))
+                {
+
+                $saveSize = new productSize;
+                 $saveSize->name = $size['name'];
+                 $saveSize->price = !empty($size['price']) ? $size['price'] : 0;
+                 $saveSize->product_id = $product->id;
+                $saveSize->save();
+                }
+
+
+            }
+          }
+
+
 
 
 
@@ -128,15 +149,39 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProductRequest $request, Product $product):RedirectResponse
+    public function update(Request $request, UpdateProductRequest $updateProductRequest, Product $product):RedirectResponse
     {
 
+
           try{
-            $product->update($request->validated());
+              $product->update($updateProductRequest->validated());
+
+              foreach ($request['size'] as $sizeId => $sizeData) {
+                // /  dd($request['size']);
+                $name = $sizeData['name'];
+                $price = $sizeData['price'];
+
+                // Check if a ProductSize instance with this ID exists
+                $productSize = ProductSize::find($sizeId);
+
+                if ($productSize) {
+                    // Update existing ProductSize instance
+                    $productSize->name = $name;
+                    $productSize->price = $price;
+                    $productSize->save();
+                } else {
+                    // Create new ProductSize instance
+                    $productSize = new ProductSize();
+                    $productSize->product_id = $product->id; // Associate with the product
+                    $productSize->name = $name;
+                    $productSize->price = $price;
+                    $productSize->save();
+                }
+            }
             if(isset($request['image']) ==null) {
 
                 $product->clearMediaCollection('product.image');
-                dd($product);
+                // dd($product);
             } else{
                 if (!file_exists(storage_path('tmp/uploads/' . $request['image']))) {
                     return redirect()->route('product.index')->withSuccess('Product Updated Successfully');
@@ -149,7 +194,7 @@ class ProductController extends Controller
             }
           }
           catch(Exception $ex) {
-            return back()->withError('Something went wrong ! ');
+            return back()->withError($ex->getMessage());
           }
     }
 

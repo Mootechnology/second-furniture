@@ -54,7 +54,8 @@
 
 
                                     <div class="col-12">
-                                        <x-textarea type='text' name="description" label="Description" class="col-12"
+                                    <label class="col-lg-12 col-form-label required fw-bold fs-6" for="Description"> Description</label>
+                                        <x-textarea type='text' name="description" class="col-12 "
                                         value=" "
                                             placeholder="Enter Description" :message="$errors->first('description')" />
                                     </div>
@@ -62,7 +63,8 @@
 
 
                                     <div class="col-12">
-                                        <x-textarea type='text' name="features" label="Key Features" class="col-12" value=" "
+                                        <label class="col-lg-12 col-form-label required fw-bold fs-6" for="Key Feature">Key Feature</label>
+                                        <x-textarea type='text' name="features" class="col-12 " value=" "
                                             placeholder="Enter Features" :message="$errors->first('features')" />
                                     </div>
                                     <table id="sizes" class="table table-striped">
@@ -73,10 +75,10 @@
                                       </tr>
                                       <tr>
                                         <td > <div class="col-6">
-                                        <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="Size" id="" placeholder="Size"> </div>
+                                        <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[100][name]" id="" placeholder="Size"> </div>
                                          </td>
                                         <td><div class="col-6">
-                                         <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="Price" id="" placeholder="Price"> </div></td>
+                                         <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[100][price] " id="" placeholder="Price"> </div></td>
                                         <td style="width:200px;" ><button class="btn btn-primary AddSize"  type="button">Add</button></td>
                                       </tr>
                                     </table>
@@ -120,17 +122,22 @@
                                         <x-cento-dash-input type="number" name="product_width" label="Product Width"
                                             placeholder="product_width" :message="$errors->first('product_width')" />
                                     </div>
-                                    <div class="col-3">
-
-
-                                            <select id="color" name="color[]" multiple >
+                                     <!--begin::Col-->
+                                     <div class="mb-12">
+                                                <label for="\color" class="form-label">Colors</label>
+                                                <select class="form-select form-select-solid is-valid" name="color[]" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" multiple>
                                                 @foreach($color as $color)
-                                                <option value="{{$color->id}}">{{$color->name}}</option>
-                                                @endforeach
-                                            </select>
+                                                        <option></option>
+                                                        <option value="{{$color->id}}">{{$color->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            @error('color')
+                                                <div class="error text-danger">{{ $message }}</div>
+                                            @enderror
+                                        <!--end::Col-->
 
-                                    </div>
-                                    <div class="col-3">
+                                    <!-- <div class="col-3">
 
 
                                         <select id="size" class="form-control form-control-sm"  name="size[]" multiple >
@@ -138,7 +145,7 @@
 
                                         </select>
 
-                                        </div>
+                                        </div> -->
                                     <div class="col-sm-3 my-4">
                                         <label class="form-check form-switch form-check-custom form-check-solid">
                                             <input class="form-check-input" type="checkbox" name="availability" />
@@ -162,15 +169,15 @@
 
         @section('js')
         <script>
-            var i = 1000;
+            var i = 100;
              $('body').delegate('.AddSize', 'click', function(){
 
                 var html = '<tr id="DeleteSize'+i+'">\n\
                                         <td > <div class="col-6">\n\
-                                        <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="Size" id="'+i+'" value="" placeholder="Size"> </div>\n\
+                                        <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size['+i+'][name]" id="'+i+'" value="" placeholder="Size"> </div>\n\
                                          </td>\n\
                                         <td><div class="col-6">\n\
-                                         <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="Price" id="" placeholder="Price"> </div></td>\n\
+                                         <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size['+i+'][price]" id="" placeholder="Price"> </div></td>\n\
                                         <td><button id="'+i+'" class="btn btn-danger DeleteSize"   type="button">Delete</button></td>\n\
                                       </tr>';
                  i++;
@@ -219,18 +226,14 @@
 
         <script>
     $(function () {
-                // Summernote
-                $('textarea').summernote({
+                //
+                $('.col-12 textarea').summernote({
                     height: '200px',
                     tabsize: 2
 
                 });
-                $('#color').multiselect({
-		nonSelectedText: 'Select Colors'
-	});
-    $('#size').multiselect({
-		nonSelectedText: 'Select Size'
-	});
+
+
             });
             </script>
 

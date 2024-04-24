@@ -28,7 +28,7 @@
 
 
 
-    @yield('css')
+     @yield('css')
 
     <!--end::Global Stylesheets Bundle-->
     @livewireStyles

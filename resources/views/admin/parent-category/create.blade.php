@@ -38,7 +38,7 @@
                                     </div>
                             </div>
                             <div class="row">
-                                        <x-textarea type='text' name="description" label="Description" class="col-12"
+                                        <x-textarea type='text' name="description" label="Description" class="col-12" value="{{old('description')}}"
                                             placeholder="Enter Description" :message="$errors->first('description')"  />
                                     </div>
                             <div class="modal-footer mt-5 gap-2">

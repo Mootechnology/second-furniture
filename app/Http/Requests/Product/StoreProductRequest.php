@@ -25,16 +25,18 @@ class StoreProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', Rule::unique('products', 'name')->ignore($this->name)],
-            'sku' =>  ['required', Rule::unique('products', 'sku')->ignore($this->sku)],
+            // // 'name' => ['required', Rule::unique('products', 'name')->ignore($this->name)],
+            // 'sku' =>  ['required', Rule::unique('products', 'sku')->ignore($this->sku)],
+            'name' => 'required',
+            'sku' => 'required',
             'description' => 'required',
             'features' => 'required',
             'price' => 'required',
             'discounted_price' => 'nullable',
             'parent_category_id' => 'required',
             'child_category_id' => 'nullable',
-            'color' => 'required',
-            'size' => 'required',
+            'color' => trim('required'),
+
             'product_length' => 'required',
             'product_weight' => 'required',
             'product_height' => 'required',

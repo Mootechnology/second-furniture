@@ -13,10 +13,27 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('products')) {
+            Schema::create('products', function (Blueprint $table) {
+                $table->id();
+                $table->string('name', 60);
+                $table->string('sku', 20);
+                $table->longText('description');
+                $table->longText('features');
+                $table->integer('price');
+                $table->integer('discounted_price')->nullable();
+                $table->foreignId('parent_category_id')->constrained('parent_categories');
+                $table->json('color')->nullable();
+                $table->foreignId('child_category_id')->nullable()->constrained('child_categories');
+                $table->integer('product_length')->nullable();
+                $table->integer('product_weight')->nullable();
+                $table->integer('product_height')->nullable();
+                $table->integer('product_width')->nullable();
+                $table->string('availability')->default('off');
+                $table->softDeletes();
+                $table->timestamps();
+            });
+        }
     }
 
     /**
@@ -26,6 +43,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+
     }
 };

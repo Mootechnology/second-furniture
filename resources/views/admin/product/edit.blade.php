@@ -58,6 +58,44 @@
                                             label="Key Features" class="col-12" placeholder="Enter Features"
                                             :message="$errors->first('features')" />
                                     </div>
+                                    <table  class="table table-striped">
+                                      <tr class="p-3">
+                                        <th class="p-2 text-bold">Size</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                      </tr>
+                                      <tbody id="sizes">
+                                      <tr>
+                                        <td > <div class="col-6">
+                                        <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[100][name]" id="" placeholder="Size"> </div>
+                                         </td>
+                                        <td><div class="col-6">
+                                         <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[100][price] " id="" placeholder="Price"> </div></td>
+                                        <td style="width:200px;" ><button class="btn btn-primary AddSize"  type="button">Add</button></td>
+                                      </tr>
+                                      @php
+                                        $i_s = 1;
+
+                                        @endphp
+                                        @foreach($size as $siz)
+
+                                      <tr id="DeleteSize{{$i_s}}">
+                                        <td > <div class="col-6">
+                                        <input type="text"  value="{{$siz->name}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[{{$i_s}}][name]" id="" placeholder="Size"> </div>
+                                         </td>
+                                        <td><div class="col-6">
+                                         <input type="text" value="{{$siz->price}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[{{$i_s}}][price] " id="" placeholder="Price"> </div></td>
+                                        <td style="width:200px;" ><button class="btn btn-danger  DeleteSize"  id="{{$i_s}}" type="button">Dlete</button></td>
+                                      </tr>
+                                        @php
+                                      $i_s++;
+                                       @endphp
+
+                                      @endforeach
+
+                                      </tbody>
+
+                                    </table>
                                     <div class="col-lg-6 fv-row fv-plugins-icon-container">
                                         <label class="col-lg-8 col-form-label required fw-bold fs-6">Parent
                                             Category</label>
@@ -77,7 +115,7 @@
                                     </div>
 
                                     <div class="col-6">
-                                        <x-cento-dash-input type="number" name="sku" value="{{$product['sku']}}"
+                                        <x-cento-dash-input type="number" name="sku" value="{{$product[]'sku']}}"
                                             label="SKU (Unique Product No.)" placeholder="Product No. should be unique"
                                             :message="$errors->first('sku')" />
                                     </div>
@@ -101,25 +139,24 @@
                                             placeholder="product_width" value="{{$product['product_width']}}"
                                             :message="$errors->first('product_width')" />
                                     </div>
-                                    <div class="col-3">
-
-
-                                            <select id="color" name="color[]" multiple >
-                                                @foreach($color as $color)
-                                                <option value="{{$color->id}}">{{$color->name}}</option>
+                                    <!--begin::Col-->
+                                    <div class="mb-12">
+                                                <label for="" class="form-label">Roles</label>
+                                                <select class="form-select form-select-solid is-valid" name="color[]" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" multiple="multiple">
+                                            @foreach ($color as $color)
+                                                   <option value="{{ $color->id }}"
+                                                    {{ in_array($color->id, $product->color) ? 'selected' : '' }}>
+                                                    {{ $color->name }}
+                                                </option>
                                                 @endforeach
-                                            </select>
 
-                                    </div>
-                                    <div class="col-3">
+                                                </select>
+                                            </div>
+                                            @error('color')
+                                                <div class="error text-danger">{{ $message }}</div>
+                                            @enderror
+                                        <!--end::Col-->
 
-
-                                        <select id="size" class="form-control form-control-sm"  name="size[]" multiple >
-
-
-                                        </select>
-
-                                        </div>
                                     <div class="col-sm-3 my-4">
                                         <label class="form-check form-switch form-check-custom form-check-solid">
                                             <input class="form-check-input" type="checkbox"
@@ -146,6 +183,27 @@
 
         @section('js')
         <script>
+              var i = 100;
+             $('body').delegate('.AddSize', 'click', function(){
+
+                var html = '<tr id="DeleteSize'+i+'">\n\
+                                        <td > <div class="col-6">\n\
+                                        <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size['+i+'][name]" id="'+i+'" value="" placeholder="Size"> </div>\n\
+                                         </td>\n\
+                                        <td><div class="col-6">\n\
+                                         <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size['+i+'][price]" id="" placeholder="Price"> </div></td>\n\
+                                        <td><button id="'+i+'" class="btn btn-danger DeleteSize"   type="button">Delete</button></td>\n\
+                                      </tr>';
+                 i++;
+                 $('#sizes').append(html);
+
+
+            });
+            $('body').delegate('.DeleteSize','click',function(){
+                var id = $(this).attr('id');
+                $('#DeleteSize'+id).remove();
+            });
+
            $(document).ready(function() {
     $('#parent').on('change', function() {
         var parentid = $(this).val();
@@ -181,7 +239,7 @@
         <script>
     $(function () {
                 // Summernote
-                $('textarea').summernote({
+                $('.col-12 textarea').summernote({
                     height: '200px',
                     tabsize: 2
 
