@@ -2,7 +2,7 @@
     <x-slot name="header">
         @section('css')
 
-       @endsection
+        @endsection
         <x-layout.header />
     </x-slot>
     <x-slot name="left_side_nav">
@@ -35,57 +35,56 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-12">
-                                        <label class="col-lg-8 col-form-label required fw-bold fs-6">Image</label>
+                                        <label class="col-lg-8 col-form-label required fw-bold fs-6"> Single Main Image</label>
                                         @include('admin.media.dropdown')
                                     </div>
+
                                     <div class="col-12">
-                                        <x-cento-dash-input type="text" name="name" label="Name" placeholder="Name"
-                                            :message="$errors->first('name')" />
+                                        <x-cento-dash-input type="text" name="name" label="Name" placeholder="Name" :message="$errors->first('name')" />
                                     </div>
                                     <div class="col-6">
-                                        <x-cento-dash-input type="number" name="price" label="price" placeholder="price"
-                                            :message="$errors->first('price')" required/>
+                                        <x-cento-dash-input type="number" name="price" label="price" placeholder="price" :message="$errors->first('price')" required />
                                     </div>
                                     <div class="col-6">
-                                        <x-cento-dash-input type="number" name="discounted_price"
-                                            label="Discounted Price" placeholder="Discounted Price"
-                                            :message="$errors->first('discounted_price')"  />
+                                        <x-cento-dash-input type="number" name="discounted_price" label="Discounted Price" placeholder="Discounted Price" :message="$errors->first('discounted_price')" />
                                     </div>
 
 
                                     <div class="col-12">
-                                    <label class="col-lg-12 col-form-label required fw-bold fs-6" for="Description"> Description</label>
-                                        <x-textarea type='text' name="description" class="col-12 "
-                                        value=" "
-                                            placeholder="Enter Description" :message="$errors->first('description')" />
+                                        <label class="col-lg-12 col-form-label required fw-bold fs-6" for="Description"> Description</label>
+                                        <x-textarea type='text' name="description" class="col-12 " value=" " placeholder="Enter Description" :message="$errors->first('description')" />
                                     </div>
                                     <br>
 
 
                                     <div class="col-12">
                                         <label class="col-lg-12 col-form-label required fw-bold fs-6" for="Key Feature">Key Feature</label>
-                                        <x-textarea type='text' name="features" class="col-12 " value=" "
-                                            placeholder="Enter Features" :message="$errors->first('features')" />
+                                        <x-textarea type='text' name="features" class="col-12 " value=" " placeholder="Enter Features" :message="$errors->first('features')" />
                                     </div>
                                     <table id="sizes" class="table table-striped">
-                                      <tr class="p-3">
-                                        <th class="p-2 text-bold">Size</th>
-                                        <th>Price</th>
-                                        <th>Action</th>
-                                      </tr>
-                                      <tr>
-                                        <td > <div class="col-6">
-                                        <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[100][name]" id="" placeholder="Size"> </div>
-                                         </td>
-                                        <td><div class="col-6">
-                                         <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[100][price] " id="" placeholder="Price"> </div></td>
-                                        <td style="width:200px;" ><button class="btn btn-primary AddSize"  type="button">Add</button></td>
-                                      </tr>
+                                        <tr class="p-3">
+                                            <th class="p-2 text-bold">Size</th>
+                                            <th>Price</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="col-6">
+                                                    <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[100][name]" id="" placeholder="Size">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-6">
+                                                    <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[100][price] " id="" placeholder="Price">
+                                                </div>
+                                            </td>
+                                            <td style="width:200px;"><button class="btn btn-primary AddSize" type="button">Add</button></td>
+                                        </tr>
                                     </table>
 
                                     <div class="col-6">
-                                    <label class="col-lg-12 col-form-label required fw-bold fs-6"> Select Parent Category
-                                           </label>
+                                        <label class="col-lg-12 col-form-label required fw-bold fs-6"> Select Parent Category
+                                        </label>
                                         <select name="parent_category_id" class="form-select form-select-solid is-valid" data-allow-clear="true" data-control="select2" id="parent">
                                             <option value="" selected disabled>Select Category</option>
                                             @foreach ($parentCategories as $item)
@@ -95,47 +94,40 @@
 
                                     </div>
                                     <div class="col-6">
-                                    <label class="col-lg-12 col-form-label required fw-bold fs-6"> Select Child Category
-                                           </label>
-                                        <x-cento-dash-input type="select" id="child-dropdown" name="child_category_id" label=""
-                                            :options="$childCategories" :message="$errors->first('child_category_id')" />
+                                        <label class="col-lg-12 col-form-label required fw-bold fs-6"> Select Child Category
+                                        </label>
+                                        <x-cento-dash-input type="select" id="child-dropdown" name="child_category_id" label="" :options="$childCategories" :message="$errors->first('child_category_id')" />
                                     </div>
 
                                     <div class="col-6">
-                                        <x-cento-dash-input type="text" nullable name="sku"
-                                            label="SKU (Unique Product No.)" placeholder="Produfct No. should be unique"
-                                            :message="$errors->first('sku')" />
+                                        <x-cento-dash-input type="text" nullable name="sku" label="SKU (Unique Product No.)" placeholder="Produfct No. should be unique" :message="$errors->first('sku')" />
                                     </div>
                                     <div class="col-6">
-                                        <x-cento-dash-input type="number" name="product_length" label="Product Length"
-                                            placeholder="product_length" :message="$errors->first('product_length')" />
+                                        <x-cento-dash-input type="number" name="product_length" label="Product Length" placeholder="product_length" :message="$errors->first('product_length')" />
                                     </div>
                                     <div class="col-6">
-                                        <x-cento-dash-input type="number" name="product_weight" label="Product Weight"
-                                            placeholder="product_weight" :message="$errors->first('product_weight')" />
+                                        <x-cento-dash-input type="number" name="product_weight" label="Product Weight" placeholder="product_weight" :message="$errors->first('product_weight')" />
                                     </div>
                                     <div class="col-6">
-                                        <x-cento-dash-input type="number" name="product_height" label="Product Height"
-                                            placeholder="product_height" :message="$errors->first('product_height')" />
+                                        <x-cento-dash-input type="number" name="product_height" label="Product Height" placeholder="product_height" :message="$errors->first('product_height')" />
                                     </div>
                                     <div class="col-6">
-                                        <x-cento-dash-input type="number" name="product_width" label="Product Width"
-                                            placeholder="product_width" :message="$errors->first('product_width')" />
+                                        <x-cento-dash-input type="number" name="product_width" label="Product Width" placeholder="product_width" :message="$errors->first('product_width')" />
                                     </div>
-                                     <!--begin::Col-->
-                                     <div class="mb-12">
-                                                <label for="\color" class="form-label">Colors</label>
-                                                <select class="form-select form-select-solid is-valid" name="color[]" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" multiple>
-                                                @foreach($color as $color)
-                                                        <option></option>
-                                                        <option value="{{$color->id}}">{{$color->name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            @error('color')
-                                                <div class="error text-danger">{{ $message }}</div>
-                                            @enderror
-                                        <!--end::Col-->
+                                    <!--begin::Col-->
+                                    <div class="mb-12">
+                                        <label for="\color" class="form-label">Colors</label>
+                                        <select class="form-select form-select-solid is-valid" name="color[]" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" multiple>
+                                            @foreach($color as $color)
+                                            <option></option>
+                                            <option value="{{$color->id}}">{{$color->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    @error('color')
+                                    <div class="error text-danger">{{ $message }}</div>
+                                    @enderror
+                                    <!--end::Col-->
 
                                     <!-- <div class="col-3">
 
@@ -170,62 +162,63 @@
         @section('js')
         <script>
             var i = 100;
-             $('body').delegate('.AddSize', 'click', function(){
+            $('body').delegate('.AddSize', 'click', function() {
 
-                var html = '<tr id="DeleteSize'+i+'">\n\
+                var html = '<tr id="DeleteSize' + i + '">\n\
                                         <td > <div class="col-6">\n\
-                                        <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size['+i+'][name]" id="'+i+'" value="" placeholder="Size"> </div>\n\
+                                        <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[' + i + '][name]" id="' + i + '" value="" placeholder="Size"> </div>\n\
                                          </td>\n\
                                         <td><div class="col-6">\n\
-                                         <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size['+i+'][price]" id="" placeholder="Price"> </div></td>\n\
-                                        <td><button id="'+i+'" class="btn btn-danger DeleteSize"   type="button">Delete</button></td>\n\
+                                         <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[' + i + '][price]" id="" placeholder="Price"> </div></td>\n\
+                                        <td><button id="' + i + '" class="btn btn-danger DeleteSize"   type="button">Delete</button></td>\n\
                                       </tr>';
-                 i++;
-                 $('#sizes').append(html);
+                i++;
+                $('#sizes').append(html);
 
 
             });
-            $('body').delegate('.DeleteSize','click',function(){
+            $('body').delegate('.DeleteSize', 'click', function() {
                 var id = $(this).attr('id');
-                $('#DeleteSize'+id).remove();
+                $('#DeleteSize' + id).remove();
             });
 
 
 
-           $(document).ready(function() {
-    $('#parent').on('change', function() {
-        var parentid = $(this).val();
-        if (parentid) {
-            $.ajax({
-                url: '/getsize/' + parentid,
-                type: "GET",
-                data: {"_token": "{{ csrf_token() }}"},
-                dataType: "json",
-                success: function(data) {
-                    if (data) {
-                        console.log(size);
-                        $('#size').empty();
-                        $('#size').append('<option hidden>Choose Size</option>');
-                        $.each(data, function(key, size) {
-                            $('select[name="size[]"]').append('<option value="' + size.id + '">' + size.dimension + '</option>');
-                            $('#size').multiselect('rebuild');
+            $(document).ready(function() {
+                $('#parent').on('change', function() {
+                    var parentid = $(this).val();
+                    if (parentid) {
+                        $.ajax({
+                            url: '/getsize/' + parentid,
+                            type: "GET",
+                            data: {
+                                "_token": "{{ csrf_token() }}"
+                            },
+                            dataType: "json",
+                            success: function(data) {
+                                if (data) {
+                                    console.log(size);
+                                    $('#size').empty();
+                                    $('#size').append('<option hidden>Choose Size</option>');
+                                    $.each(data, function(key, size) {
+                                        $('select[name="size[]"]').append('<option value="' + size.id + '">' + size.dimension + '</option>');
+                                        $('#size').multiselect('rebuild');
 
+                                    });
+                                } else {
+                                    $('#size').empty();
+                                }
+                            }
                         });
                     } else {
                         $('#size').empty();
                     }
-                }
+                });
             });
-        } else {
-            $('#size').empty();
-        }
-    });
-});
-
         </script>
 
         <script>
-    $(function () {
+            $(function() {
                 //
                 $('.col-12 textarea').summernote({
                     height: '200px',
@@ -235,7 +228,10 @@
 
 
             });
-            </script>
+        </script>
+
+
+        <!-- DropZone Js -->
 
 
         @endsection
