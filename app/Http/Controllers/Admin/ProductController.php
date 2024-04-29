@@ -97,6 +97,11 @@ class ProductController extends Controller
             if (isset($request->image)) {
                 $product->addMedia(storage_path('tmp/uploads/' . $request->image))->toMediaCollection('product.image');
             }
+             if (isset($request->multiImage)) {
+                foreach ($request->multiImage as $image) {
+                    $product->addMedia(storage_path('tmp/uploads/' . $image))->toMediaCollection('product.other.image');
+                }
+            }
             if ($product) {
                 return redirect()->route('product.index')->withSuccess('Product successfully created');
             } else {

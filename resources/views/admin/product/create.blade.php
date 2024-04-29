@@ -34,9 +34,14 @@
                             <!--begin::Table container-->
                             <div class="modal-body">
                                 <div class="row">
-                                    <div class="col-12">
+                                    <div class="col-6">
                                         <label class="col-lg-8 col-form-label required fw-bold fs-6"> Single Main Image</label>
                                         @include('admin.media.dropdown')
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="col-lg-8 col-form-label required fw-bold fs-6">Other Image</label>
+                                        @include('admin.media.multi_dropzone')
+
                                     </div>
 
                                     <div class="col-12">
