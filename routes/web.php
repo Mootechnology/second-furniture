@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\PostController;
+use App\Http\Middleware\Permissions;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,19 +27,19 @@ use Illuminate\Support\Facades\Route;
 
 // for components testing purpose
 
-Route::controller(AuthController::class)
-    ->prefix('auth')
-    ->name('auth.')
-    ->group(function () {
-        Route::get('login',  'loginView')->name('login');
-        Route::post('login-user', 'userLogin')->name('login.user');
-        Route::get('register',  'registerView')->name('register');
-        Route::post('check-register', 'checkRegister')->name('check.register');
-        Route::get('logout', 'logout')->name('logout');
-    });
 
-Route::withoutMiddleware()->group(function () {
+Route::withoutMiddleware([Permissions::class])->group(function () {
 
+    Route::controller(AuthController::class)
+        ->prefix('auth')
+        ->name('auth.')
+        ->group(function () {
+            Route::get('login',  'loginView')->name('login');
+            Route::post('login-user', 'userLogin')->name('login.user');
+            Route::get('register',  'registerView')->name('register');
+            Route::post('check-register', 'checkRegister')->name('check.register');
+            Route::get('logout', 'logout')->name('logout');
+        });
     Route::view('/', 'frontend.index')->name('index');
     Route::view('/category', 'frontend.category')->name('category');
     Route::view('/about', 'frontend.about')->name('about');

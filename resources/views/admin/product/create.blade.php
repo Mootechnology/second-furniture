@@ -59,7 +59,7 @@
                                     </div>
 
 
-                                    <div class="col-12">
+                                    <div class="col-6">
                                         <label class="col-lg-12 col-form-label required fw-bold fs-6" for="Description">
                                             Description</label>
                                         <x-textarea type='text' name="description" class="col-12 " value=" "
@@ -68,7 +68,7 @@
                                     <br>
 
 
-                                    <div class="col-12">
+                                    <div class="col-6">
                                         <label class="col-lg-12 col-form-label required fw-bold fs-6"
                                             for="Key Feature">Key Feature</label>
                                         <x-textarea type='text' name="features" class="col-12 " value=" "
@@ -196,16 +196,17 @@
 
                     var html = '<tr id="DeleteSize' + i +
                         '">\n\
-                                                    <td > <div class="col-6">\n\
-                                                    <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[' + i +
+                                                                                        <td > <div class="col-6">\n\
+                                                                                        <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[' +
+                        i +
                         '][name]" id="' + i +
                         '" value="" placeholder="Size"> </div>\n\
-                                                     </td>\n\
-                                                    <td><div class="col-6">\n\
-                                                     <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[' +
+                                                                                         </td>\n\
+                                                                                        <td><div class="col-6">\n\
+                                                                                         <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[' +
                         i + '][price]" id="" placeholder="Price"> </div></td>\n\
-                                                    <td><button id="' + i + '" class="btn btn-danger DeleteSize"   type="button">Delete</button></td>\n\
-                                                  </tr>';
+                                                                                        <td><button id="' + i + '" class="btn btn-danger DeleteSize"   type="button">Delete</button></td>\n\
+                                                                                      </tr>';
                     i++;
                     $('#sizes').append(html);
 
@@ -261,24 +262,6 @@
                         tabsize: 2
 
                     });
-
-
-                });
-            </script>
-
-
-            <!-- DropZone Js -->
-
-            <script>
-                $(function() {
-                    //
-                    $('.col-12 textarea').summernote({
-                        height: '200px',
-                        tabsize: 2
-
-                    });
-
-
                 });
             </script>
         @endsection

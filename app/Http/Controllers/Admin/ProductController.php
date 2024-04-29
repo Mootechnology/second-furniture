@@ -16,6 +16,9 @@ use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Symfony\Component\ErrorHandler\Debug;
+
+use function Psy\debug;
 
 class ProductController extends Controller
 {
@@ -58,10 +61,6 @@ class ProductController extends Controller
      */
     public function store(Request $request, StoreProductRequest $storerequest): RedirectResponse
     {
-
-
-
-
         try {
             $validatedData =  $storerequest->validated();
             $product = Product::create($validatedData);
@@ -69,9 +68,6 @@ class ProductController extends Controller
             // Convert color array to JSON before storing
             $validatedData['color'] = $request->input('color_id', []);
             if (!empty($request->size)) {
-
-
-
                 foreach ($request->size as $size) {
 
                     if (!empty($size['name'])) {
@@ -125,6 +121,7 @@ class ProductController extends Controller
         $childCategories = ChildCategory::all();
         $color = Color::all();
         $size = productSize::all();
+
         return view('admin.product.edit')->with(
             [
                 'product' => $product,
@@ -145,13 +142,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, UpdateProductRequest $updateProductRequest, Product $product): RedirectResponse
     {
-
-
         try {
             $product->update($updateProductRequest->validated());
 
             foreach ($request['size'] as $sizeId => $sizeData) {
-                // /  dd($request['size']);
                 $name = $sizeData['name'];
                 $price = $sizeData['price'];
 

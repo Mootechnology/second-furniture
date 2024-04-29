@@ -187,12 +187,11 @@
                                         <div class="error text-danger">{{ $message }}</div>
                                     @enderror
                                     <!--end::Col-->
-
                                     <div class="col-sm-3 my-4">
                                         <label class="form-check form-switch form-check-custom form-check-solid">
                                             <input class="form-check-input" type="checkbox"
-                                                {{ $product['availability'] == 'on' ? 'checked' : '' }} name="availability"
-                                                value="" />
+                                                {{ $product['availability'] == 'on' ? 'checked' : '' }}
+                                                name="availability" value="" />
                                             <span class="form-check-label fw-semibold text-muted">Availability</span>
                                         </label>
                                     </div>
@@ -220,16 +219,20 @@
 
                     var html = '<tr id="DeleteSize' + i +
                         '">\n\
-                                                    <td > <div class="col-6">\n\
-                                                    <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[' + i +
+                                                                                                                                                                                                                <td > <div class="col-6">\n\
+                                                                                                                                                                                                                <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[' +
+                        i +
                         '][name]" id="' + i +
                         '" value="" placeholder="Size"> </div>\n\
-                                                     </td>\n\
-                                                    <td><div class="col-6">\n\
-                                                     <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[' +
-                        i + '][price]" id="" placeholder="Price"> </div></td>\n\
-                                                    <td><button id="' + i + '" class="btn btn-danger DeleteSize"   type="button">Delete</button></td>\n\
-                                                  </tr>';
+                                                                                                                                                                                                                 </td>\n\
+                                                                                                                                                                                                                <td><div class="col-6">\n\
+                                                                                                                                                                                                                 <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[' +
+                        i +
+                        '][price]" id="" placeholder="Price"> </div></td>\n\
+                                                                                                                                                                                                                <td><button id="' +
+                        i +
+                        '" class="btn btn-danger DeleteSize"   type="button">Delete</button></td>\n\
+                                                                                                                                                                                                              </tr>';
                     i++;
                     $('#sizes').append(html);
 
@@ -271,23 +274,6 @@
                         } else {
                             $('#size').empty();
                         }
-                    });
-                });
-            </script>
-
-            <script>
-                $(function() {
-                    // Summernote
-                    $('.col-12 textarea').summernote({
-                        height: '200px',
-                        tabsize: 2
-
-                    });
-                    $('#color').multiselect({
-                        nonSelectedText: 'Select Colors'
-                    });
-                    $('#size').multiselect({
-                        nonSelectedText: 'Select Size'
                     });
                 });
             </script>
