@@ -92,8 +92,6 @@ class ProductController extends Controller
                     $product->addMedia(storage_path('tmp/uploads/' . $image))->toMediaCollection('product.other.image');
                 }
             }
-
-
             if ($product) {
                 return redirect()->route('product.index')->withSuccess('Product successfully created');
             } else {

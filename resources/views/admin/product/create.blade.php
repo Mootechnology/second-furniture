@@ -1,8 +1,9 @@
 <x-layout.master>
     <x-slot name="header">
         @section('css')
-        @endsection
-        <x-layout.header />
+            <<<<<<< HEAD=======>>>>>>> 69f5e52b77ceee8699d87b7d729821211de8a070
+            @endsection
+            <x-layout.header />
     </x-slot>
     <x-slot name="left_side_nav">
         <x-layout.left_side_nav />
@@ -34,14 +35,16 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-6">
-                                        <label class="col-lg-8 col-form-label required fw-bold fs-6">Main Image</label>
+                                        <label class="col-lg-8 col-form-label required fw-bold fs-6"> Single Main
+                                            Image</label>
                                         @include('admin.media.dropdown')
                                     </div>
                                     <div class="col-6">
-                                        <label class="col-lg-8 col-form-label required fw-bold fs-6">Other
-                                            Images</label>
-                                        @include('admin.media.multi-dropzone')
+                                        <label class="col-lg-8 col-form-label required fw-bold fs-6">Other Image</label>
+                                        @include('admin.media.multi_dropzone')
+
                                     </div>
+
                                     <div class="col-12">
                                         <x-cento-dash-input type="text" name="name" label="Name"
                                             placeholder="Name" :message="$errors->first('name')" />
@@ -193,17 +196,16 @@
 
                     var html = '<tr id="DeleteSize' + i +
                         '">\n\
-                                                                                        <td > <div class="col-6">\n\
-                                                                                        <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[' +
-                        i +
+                                                    <td > <div class="col-6">\n\
+                                                    <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[' + i +
                         '][name]" id="' + i +
                         '" value="" placeholder="Size"> </div>\n\
-                                                                                         </td>\n\
-                                                                                        <td><div class="col-6">\n\
-                                                                                         <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[' +
+                                                     </td>\n\
+                                                    <td><div class="col-6">\n\
+                                                     <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" name="size[' +
                         i + '][price]" id="" placeholder="Price"> </div></td>\n\
-                                                                                        <td><button id="' + i + '" class="btn btn-danger DeleteSize"   type="button">Delete</button></td>\n\
-                                                                                      </tr>';
+                                                    <td><button id="' + i + '" class="btn btn-danger DeleteSize"   type="button">Delete</button></td>\n\
+                                                  </tr>';
                     i++;
                     $('#sizes').append(html);
 
@@ -250,6 +252,22 @@
                     });
                 });
             </script>
+
+            <script>
+                $(function() {
+                    //
+                    $('.col-12 textarea').summernote({
+                        height: '200px',
+                        tabsize: 2
+
+                    });
+
+
+                });
+            </script>
+
+
+            <!-- DropZone Js -->
 
             <script>
                 $(function() {

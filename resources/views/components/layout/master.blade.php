@@ -25,6 +25,7 @@
     <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css"/>
     <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
      <link rel="stylesheet" href="{{ asset('assets/plugins/summernote/summernote.min.css') }} ">
+     <link rel="stylesheet" href="{{ asset('assets/plugins/dropzone/dropzone.min.css') }} ">
 
 
 
@@ -5362,6 +5363,7 @@
     <script src="assets/js/custom/utilities/modals/create-app.js"></script>
     <script src="assets/js/custom/utilities/modals/users-search.js"></script>
     <script src=" {{ asset('assets/plugins/summernote/summernote.min.js') }}"></script>
+    <script src=" {{ asset('assets/plugins/dropzone/dropzone.min.js') }}"></script>
     @yield('js')
 
     {{-- <script src="{{asset('vendor/laravel-filemanager/js/dropzone.min.js')}}"></script> --}}

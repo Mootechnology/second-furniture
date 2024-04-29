@@ -21,7 +21,7 @@ class PermissionController extends Controller
      */
     public function index(PermissionDataTable $permissionDataTable)
     {
-        return $permissionDataTable->render('admin.permissions.index',[$permissionDataTable]);
+        return $permissionDataTable->render('admin.permissions.index', [$permissionDataTable]);
     }
 
     /**

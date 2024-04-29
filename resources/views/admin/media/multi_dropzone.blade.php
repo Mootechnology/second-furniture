@@ -2,7 +2,7 @@
 
 <div class="fv-row w-100">
     <!--begin::Dropzone-->
-    <div class="needsclick dropzone" id="{{ $dropzone_name ?? 'kt_dropzonejs_example_2' }}">
+    <div class="needsclick dropzone" id="{{ $dropzone_name ?? 'kt_dropzonejs_example_1' }}">
 
         <!--begin::Message-->
         <div class="dz-message needsclick ">
@@ -26,28 +26,28 @@
 <script type="text/javascript">
     var uploadedDocumentMap = {};
     var myDropzone = new Dropzone(
-        '#kt_dropzonejs_example_2', {
+        '#kt_dropzonejs_example_1', {
             url: '{{ route('file.upload') }}',
-            maxFiles: 4, // MB
+            maxFiles: 10, // MB
             addRemoveLinks: true,
             headers: {
                 'X-CSRF-TOKEN': "{{ csrf_token() }}"
             },
             success: function(file, response) {
-                $('form').append('<input type="hidden" name="image" value="' + response.name +
+                $('form').append('<input type="hidden" name="multiImage[]" value="' + response.name +
                     '">')
                 uploadedDocumentMap[file.name] = response.name
             },
             removedfile: function(file) {
                 file.previewElement.remove()
-                $('form').find('input[name="image"][value="' + file.name + '"]').remove()
+                $('form').find('input[name="multiImage[]"][value="' + file.name + '"]').remove()
                 var name = ''
                 if (typeof file.file_name !== 'undefined') {
                     name = file.file_name
                 } else {
                     name = uploadedDocumentMap[file.name]
                 }
-                $('form').find('input[name="image"][value="' + name + '"]').remove()
+                $('form').find('input[name="multiImage[]"][value="' + name + '"]').remove()
             },
             init: function() {
                 @if(isset($file) && $file -> getFirstMediaUrl($collection_name))
@@ -59,7 +59,7 @@
                 };
                 this.options.addedfile.call(this, file);
                 this.emit("thumbnail", file, fileUrl);
-                $('form').append('<input type="hidden" name="image" value="' + fileUrl + '">');
+                $('form').append('<input type="hidden" name="multiImage[]" value="' + fileUrl + '">');
 
                 uploadedDocumentMap[file.name] = file;
                 @endif
@@ -68,7 +68,7 @@
                     myDropzone.removeFile(file);
                     Swal.fire({
                         title: 'Error !',
-                        text: "You can't upload more than 1 file !",
+                        text: "You can't upload more than 10 file !",
                         icon: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',
