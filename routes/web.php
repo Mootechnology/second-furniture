@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\ChildCategoryController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\FileManagerController;
@@ -130,6 +131,18 @@ Route::middleware('auth')->group(function () {
 
         });
 
+    //   Blog Controller
+    Route::controller(BlogController::class)
+        ->prefix('admin/blog')
+        ->name('blog.')
+        ->group(function () {
+            Route::get('', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::post('store', 'store')->name('store');
+            Route::get('edit/{blog}', 'edit')->name('edit');
+            Route::post('update{blog}', 'update')->name('update');
+            Route::get('delete/{blog}', 'destroy')->name('delete');
+        });
 });
 
 Route::view('/', 'frontend.index')->name('index');
