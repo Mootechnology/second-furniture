@@ -50,20 +50,20 @@
               <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ route('index')}}">Home</a>
+                    <a class="nav-link" href="{{ route('web.index')}}">Home</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Shop
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                      <a class="dropdown-item" href="{{route('category')}}">
+                      <a class="dropdown-item" href="{{route('web.category')}}">
                         shop category
                       </a>
-                      <a class="dropdown-item" href="{{route('allproducts')}}">
+                      <a class="dropdown-item" href="{{route('web.allproducts')}}">
                         All Products
                       </a>
-                      <a class="dropdown-item" href="{{route('single-product')}}">
+                      <a class="dropdown-item" href="{{route('web.single-product')}}">
                         product details
                       </a>
                     </div>
@@ -73,24 +73,24 @@
                       pages
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                      <a class="dropdown-item" href="{{route('checkout')}}">product checkout</a>
-                      <a class="dropdown-item" href="{{route('cart')}}">shopping cart</a>
+                      <a class="dropdown-item" href="{{route('web.checkout')}}">product checkout</a>
+                      <a class="dropdown-item" href="{{route('web.cart')}}">shopping cart</a>
                     </div>
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="{{route('contact')}}">Contact</a>
+                    <a class="nav-link" href="{{route('web.contact')}}">Contact</a>
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="{{route('about')}}">About</a>
+                    <a class="nav-link" href="{{route('web.about')}}">About</a>
                   </li>
                 </ul>
               </div>
               <div class="hearer_icon d-flex">
                 <a id="search_1" href="#"><i style="color: #78909c" class="fa-solid fa-magnifying-glass"></i></a>
-                <a href="{{route('wishlist')}}"><i style="color: #78909c" class="fa-regular fa-heart"></i></a>
-                <a href="{{route('cart')}}"><i style="color: #78909c" class="fas fa-cart-plus"></i></a>
+                <a href="{{route('web.wishlist')}}"><i style="color: #78909c" class="fa-regular fa-heart"></i></a>
+                <a href="{{route('web.cart')}}"><i style="color: #78909c" class="fas fa-cart-plus"></i></a>
               </div>
             </nav>
           </div>

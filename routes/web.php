@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\FrontEndController\DefaultController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +27,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 // for components testing purpose
-
+Route::controller(DefaultController::class)
+    ->prefix('')
+    ->name('web.')
+    ->group(
+        function () {
+            Route::get('/', 'index')->name('index');
+            Route::view('/category', 'frontend.category')->name('category');
+            Route::view('/about', 'frontend.about')->name('about');
+            Route::view('/allproducts', 'frontend.allproducts')->name('allproducts');
+            Route::view('/cart', 'frontend.cart')->name('cart');
+            Route::view('/checkout', 'frontend.checkout')->name('checkout');
+            Route::view('/contact', 'frontend.contact')->name('contact');
+            Route::view('/faq', 'frontend.faq')->name('faq');
+            Route::view('/single-product', 'frontend.single-product')->name('single-product');
+            Route::view('/wishlist', 'frontend.wishlist')->name('wishlist');
+        }
+    );
 Route::controller(AuthController::class)
     ->prefix('auth')
     ->name('auth.')
@@ -145,13 +162,4 @@ Route::middleware('auth')->group(function () {
         });
 });
 
-Route::view('/', 'frontend.index')->name('index');
-Route::view('/category', 'frontend.category')->name('category');
-Route::view('/about', 'frontend.about')->name('about');
-Route::view('/allproducts', 'frontend.allproducts')->name('allproducts');
-Route::view('/cart', 'frontend.cart')->name('cart');
-Route::view('/checkout', 'frontend.checkout')->name('checkout');
-Route::view('/contact', 'frontend.contact')->name('contact');
-Route::view('/faq', 'frontend.faq')->name('faq');
-Route::view('/single-product', 'frontend.single-product')->name('single-product');
-Route::view('/wishlist', 'frontend.wishlist')->name('wishlist');
+

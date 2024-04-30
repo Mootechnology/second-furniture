@@ -29,40 +29,19 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <label class="col-lg-8 col-form-label required fw-bold fs-6">Image</label>
-                                    @include('admin.media.dropdown',['file'=>$blog,'collection_name'=>'blog.image'])
-                                    <x-cento-dash-input type="text" name="title" label="Title" placeholder="Title"
-                                        value="{{$blog['title']}}" :message="$errors->first('title')" />
-                                    <x-textarea type='text' name="description" label="Description" class="col-12"
-                                        value="{{$blog['title']}}" placeholder="Enter Description"
-                                        :message="$errors->first('description')" />
-                                    <x-cento-dash-input type="text" name="second_title" label="Second Title"
-                                        value="{{$blog['title']}}" placeholder="Second Title"
-                                        :message="$errors->first('second_title')" />
-                                    <x-textarea type='text' name="second_description" label="Second Description"
-                                        value="{{$blog['second_description']}}" class="col-12"
-                                        placeholder="Enter Description"
-                                        :message="$errors->first('second_description')" />
-                                    <x-cento-dash-input type="text" name="third_title" label="Third Title"
-                                        value="{{$blog['third_title']}}" placeholder="Third Title"
-                                        :message="$errors->first('third_title')" />
-                                    <x-textarea type='text' name="third_description" label="Third Description"
-                                        value="{{$blog['third_description']}}" class="col-12"
-                                        placeholder="Enter Description"
-                                        :message="$errors->first('third_description')" />
-                                    <x-cento-dash-input type="text" name="forth_title" label="Forth Title"
-                                        value="{{$blog['forth_title']}}" placeholder="Forth Title"
-                                        :message="$errors->first('forth_title')" />
-                                    <x-textarea type='text' name="forth_description" label="Forth Description"
-                                        value="{{$blog['forth_description']}}" class="col-12"
-                                        placeholder="Enter Description"
-                                        :message="$errors->first('forth_description')" />
-                                    <x-cento-dash-input type="text" name="fifth_title" label="Fifth Title"
-                                        value="{{$blog['fifth_title']}}" placeholder="Fifth Title"
-                                        :message="$errors->first('fifth_title')" />
-                                    <x-textarea type='text' name="fifth_description" label="Fifth Description"
-                                        value="{{$blog['fifth_description']}}" class="col-12"
-                                        placeholder="Enter Description"
-                                        :message="$errors->first('fifth_description')" />
+                                    @include('admin.media.multi_dropzone',['file' => $blog,
+                                    'collection_name' => 'blog.image',] )
+                                    <x-cento-dash-input type="text" name="title" label="Title" placeholder="Title" value="{{$blog['title']}}" :message="$errors->first('title')" />
+
+                                    <x-textarea type='text' name="description" label="Description" class="col-12" value="{{$blog['title']}}" placeholder="Enter Description" :message="$errors->first('description')" />
+                                    <x-cento-dash-input type="text" name="second_title" label="Second Title" value="{{$blog['title']}}" placeholder="Second Title" :message="$errors->first('second_title')" />
+                                    <x-textarea type='text' name="second_description" label="Second Description" value="{{$blog['second_description']}}" class="col-12" placeholder="Enter Description" :message="$errors->first('second_description')" />
+                                    <x-cento-dash-input type="text" name="third_title" label="Third Title" value="{{$blog['third_title']}}" placeholder="Third Title" :message="$errors->first('third_title')" />
+                                    <x-textarea type='text' name="third_description" label="Third Description" value="{{$blog['third_description']}}" class="col-12" placeholder="Enter Description" :message="$errors->first('third_description')" />
+                                    <x-cento-dash-input type="text" name="forth_title" label="Forth Title" value="{{$blog['forth_title']}}" placeholder="Forth Title" :message="$errors->first('forth_title')" />
+                                    <x-textarea type='text' name="forth_description" label="Forth Description" value="{{$blog['forth_description']}}" class="col-12" placeholder="Enter Description" :message="$errors->first('forth_description')" />
+                                    <x-cento-dash-input type="text" name="fifth_title" label="Fifth Title" value="{{$blog['fifth_title']}}" placeholder="Fifth Title" :message="$errors->first('fifth_title')" />
+                                    <x-textarea type='text' name="fifth_description" label="Fifth Description" value="{{$blog['fifth_description']}}" class="col-12" placeholder="Enter Description" :message="$errors->first('fifth_description')" />
                                 </div>
                             </div>
                             <div class="modal-footer mt-5 gap-2">

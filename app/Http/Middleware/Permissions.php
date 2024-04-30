@@ -49,25 +49,25 @@ class Permissions
             }
         });
 
-        $permission = $request->route()->getName();
+        // $permission = $request->route()->getName();
 
-        if ($this->match($request->route()) && auth()->user()->cannot($permission)) {
-            if ($permission == '/') {
-                return redirect(route('/'));
-            }
-            // } elseif ($permission == 'user.login') {
-            //     return redirect(route('user.login'));
-            // } elseif ($permission == 'user.login.user') {
-            //     return redirect(route('user.login.user'));
-            // } elseif ($permission == 'user.register') {
-            //     return redirect(route('user.register'));
-            // } elseif ($permission == 'user.check.register') {
-            //     return redirect(route('user.check.register'));
-            // } else {
-            //     return redirect(route('user.index'));
-            // }
-            throw new UnauthorizedException(403, trans('error.permission') . ' <b>' . $permission . '</b>');
-        }
+        // if ($this->match($request->route()) && auth()->user()->cannot($permission)) {
+        //     if ($permission == '/') {
+        //         return redirect(route('/'));
+        //     }
+        //     // } elseif ($permission == 'user.login') {
+        //     //     return redirect(route('user.login'));
+        //     // } elseif ($permission == 'user.login.user') {
+        //     //     return redirect(route('user.login.user'));
+        //     // } elseif ($permission == 'user.register') {
+        //     //     return redirect(route('user.register'));
+        //     // } elseif ($permission == 'user.check.register') {
+        //     //     return redirect(route('user.check.register'));
+        //     // } else {
+        //     //     return redirect(route('user.index'));
+        //     // }
+        //     throw new UnauthorizedException(403, trans('error.permission') . ' <b>' . $permission . '</b>');
+        // }
 
         return $next($request);
     }

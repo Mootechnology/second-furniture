@@ -26,16 +26,18 @@
 <script type="text/javascript">
     var uploadedDocumentMap = {};
     var myDropzone = new Dropzone(
-        '#kt_dropzonejs_example_2', {
+        '#{{ $dropzone_name ?? '
+        kt_dropzonejs_example_2 ' }}', {
             url: '{{ route('file.upload') }}',
-            maxFiles: 4, // MB
+            maxFiles: 1, // MB
             addRemoveLinks: true,
             headers: {
                 'X-CSRF-TOKEN': "{{ csrf_token() }}"
             },
             success: function(file, response) {
-                $('form').append('<input type="hidden" name="image" value="' + response.name +
-                    '">')
+                var fieldName = '{{ $dropzone_name ?? '
+                image ' }}'; // Set the field name here
+                $('form').append('<input type="hidden" name="' + fieldName + '" value="' + response.name + '">')
                 uploadedDocumentMap[file.name] = response.name
             },
             removedfile: function(file) {
@@ -49,6 +51,9 @@
                 }
                 $('form').find('input[name="image"][value="' + name + '"]').remove()
             },
+
+
+
             init: function() {
                 @if(isset($file) && $file -> getFirstMediaUrl($collection_name))
                 var fileUrl = {
@@ -59,7 +64,8 @@
                 };
                 this.options.addedfile.call(this, file);
                 this.emit("thumbnail", file, fileUrl);
-                $('form').append('<input type="hidden" name="image" value="' + fileUrl + '">');
+                $('form').append('<input type="hidden" name="{{$dropzone_name??'
+                    image '}}" value="' + fileUrl + '">');
 
                 uploadedDocumentMap[file.name] = file;
                 @endif
@@ -85,8 +91,11 @@
                         }
                     })
 
+
                 });
+
             }
+
         });
 </script>
 @endpush
