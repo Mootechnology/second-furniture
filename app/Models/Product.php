@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Support\Str;
 
 class Product extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia, SoftDeletes;
     protected $fillable = [
         'name',
+        'slug',
         'sku',
         'description',
         'features',
@@ -32,6 +34,16 @@ class Product extends Model implements HasMedia
         {
             $this->attributes['color'] = json_encode($value);
         }
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($product) {
+            // Generate slug from category name with spaces replaced by hyphens
+            $product->slug = Str::slug($category->name, '-');
+        });
+    }
+
 
 
         // Accessor to convert JSON string to an array when getting the attribute

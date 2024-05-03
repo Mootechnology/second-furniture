@@ -145,38 +145,33 @@
             </div>
         </div>
         <div class="row align-items-center justify-content-between">
-            <div class="col-lg-7 col-sm-6">
+
+            @php
+            $colClass = 'col-lg-7'; // Start with col-lg-7 for the first product
+            @endphp
+            @php
+            // Get the last 4 categories using the slice method
+            $lastFourCategories = $childCategories->slice(-4)->reverse();
+            @endphp
+            @foreach($lastFourCategories as $index => $childCategory)
+
+            <div class="{{ $colClass }} col-sm-6">
                 <div class="single_feature_post_text single_feature_post_first">
                     <p>Premium Quality</p>
-                    <h3>Category Name</h3>
+                    <h3>{{$childCategory['name']}}</h3>
                     <a href="allproducts.html" class="feature_btn">Shop Now <i class="fas fa-play"></i></a>
-                    <img src="{{ asset('frontend/assets/images/feature/feature_1.png')}}" alt="">
+                    <img src="{{$childCategory->getFirstMediaUrl('childCategory.image')}}" alt="">
                 </div>
             </div>
-            <div class="col-lg-5 col-sm-6">
-                <div class="single_feature_post_text single_feature_post_scnd">
-                    <p>Premium Quality</p>
-                    <h3>Category Name</h3>
-                    <a href="allproducts.html" class="feature_btn">Shop Now <i class="fas fa-play"></i></a>
-                    <img src="{{ asset('frontend/assets/images/feature/feature_2.png')}}" alt="">
-                </div>
-            </div>
-            <div class="col-lg-5 col-sm-6">
-                <div class="single_feature_post_text single_feature_post_scndlast">
-                    <p>Premium Quality</p>
-                    <h3>Category Name</h3>
-                    <a href="allproducts.html" class="feature_btn">Shop Now <i class="fas fa-play"></i></a>
-                    <img src="{{ asset('frontend/assets/images/feature/feature_3.png')}}" alt="">
-                </div>
-            </div>
-            <div class="col-lg-7 col-sm-6">
-                <div class="single_feature_post_text single_feature_post_last">
-                    <p>Premium Quality</p>
-                    <h3>Category Name</h3>
-                    <a href="allproducts.html" class="feature_btn">Shop Now <i class="fas fa-play"></i></a>
-                    <img src="{{ asset('frontend/assets/images/feature/feature_4.png')}}" alt="">
-                </div>
-            </div>
+            @if ($index % 2 == 0)
+            @php
+            // Toggle between col-lg-7 and col-lg-5 based on index (even or odd)
+            $colClass = $colClass == 'col-lg-7' ? 'col-lg-5' : 'col-lg-7';
+            @endphp
+            @endif
+            @endforeach
+
+
         </div>
     </div>
 </section>

@@ -14,15 +14,48 @@ class DefaultController extends Controller
     public function index(){
 
         $products = Product::orderByDesc('created_at')->take(20)->get();
-       
-        $category = ParentCategory::all();
-        $chilCategory = ChildCategory::all();
+
+        $categories = ParentCategory::with('childCategories')->get();
+        $chilCategory = ChildCategory::get();
         return view('frontend.index')->with([
             'products' => $products,
-            'parentCateogry' => $category,
+            'parentCategories' => $categories,
             'childCategories' => $chilCategory
 
         ]);
 
     }
+
+    // All Parent CAtegories
+    public function parentCategory()
+    {
+        $parentCategories = ParentCategory::orderBy('created_at', 'desc')->get();
+        $product = Product::get()->random(4);
+        $childCategories = '';
+
+        return view('frontend.Categories')->with([
+            'products' => $product,
+            'parentCategories' => $parentCategories,
+            'childCategories' => $childCategories
+        ]);
+
+
+    }
+
+    // Child Cate by Parent Category
+
+    public function category(Request $request){
+
+        $childCategory = ChildCategory::where('parent_category_id', $request->id)->get();
+
+        $product = Product::where('parent_category_id', $request->id)->get()->random(4);
+
+        return view('frontend.Categories')->with([
+            'products' => $product,
+            'childCategories' => $childCategory,
+
+        ]);
+
+    }
+
 }

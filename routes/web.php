@@ -33,7 +33,8 @@ Route::controller(DefaultController::class)
     ->group(
         function () {
             Route::get('/', 'index')->name('index');
-            Route::view('/category', 'frontend.category')->name('category');
+            Route::get('parentcategory', 'parentCategory')->name('parentcategory');
+            Route::get('childCategory/{id}', 'category')->name('category');
             Route::view('/about', 'frontend.about')->name('about');
             Route::view('/allproducts', 'frontend.allproducts')->name('allproducts');
             Route::view('/cart', 'frontend.cart')->name('cart');
@@ -42,8 +43,8 @@ Route::controller(DefaultController::class)
             Route::view('/faq', 'frontend.faq')->name('faq');
             Route::view('/single-product', 'frontend.single-product')->name('single-product');
             Route::view('/wishlist', 'frontend.wishlist')->name('wishlist');
-        }
-    );
+
+        });
 Route::controller(AuthController::class)
     ->prefix('auth')
     ->name('auth.')
@@ -124,6 +125,7 @@ Route::middleware('auth')->group(function () {
             Route::get('edit/{childCategory}', 'edit')->name('edit');
             Route::post('update/{childCategory}', 'update')->name('update');
             Route::get('delete/{childCategory}', 'destroy')->name('delete');
+            Route::get('/category/{id}', 'parentcategory')->name('parentcategory');
         });
         Route::controller(ColorController::class)
         ->prefix('color')

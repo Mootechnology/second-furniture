@@ -33,32 +33,30 @@
                                 <!--begin::Label-->
                                 <!--end::Label-->
                                 <div class="row">
+                                    <label class="col-lg-8 col-form-label required fw-bold fs-6 ml-2">Image</label>
                                     <div class="col-12">
-                                        <label class="col-lg-8 col-form-label required fw-bold fs-6">Image</label>
+
                                         @include('admin.media.dropdown')
                                     </div>
                                     <div class="col-6">
-                                        <x-cento-dash-input type="text" name="name" label="Name" placeholder="Name"
-                                            :message="$errors->first('name')" />
+                                        <x-cento-dash-input type="text" name="name" label="Name" placeholder="Name" :message="$errors->first('name')" />
                                     </div>
+
+
                                     <div class="col-6">
-                                        <x-cento-dash-input type="text" name="sub_name" label="Sub Name"
-                                            placeholder="Sub Name" :message="$errors->first('sub_name')" />
+                                        <x-cento-dash-input type="select" name="parent_category_id" label="Parent Category" :options="$parentCategories" :message="$errors->first('parent_category_id')" />
                                     </div>
-                                    <div class="col-6">
-                                        <x-textarea type='text' name="description" label="Description" class="col-12"
-                                            placeholder="Enter Description" :message="$errors->first('description')" />
+                                    <!--begin::Col-->
+                                    <label class="col-lg-8 col-form-label required fw-bold fs-6">Description</label>
+                                    <div class="col-lg-12 fv-row fv-plugins-icon-container">
+
+                                        <textarea type="text" name="description" placeholder="Description" class="form-control form-control-lg form-control-solid mb-lg-0 "></textarea>
+                                        <div class="fv-plugins-message-container invalid-feedback"></div>
+                                        @error('desccription')
+                                        <div class="error text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
-                                    <div class="col-6">
-                                        <x-textarea type='text' name="sub_description" label="Sub Description"
-                                            class="col-12" placeholder="Enter Description"
-                                            :message="$errors->first('sub_description')" />
-                                    </div>
-                                    <div class="col-12">
-                                        <x-cento-dash-input type="select" name="parent_category_id"
-                                            label="Parent Category" :options="$parentCategories"
-                                            :message="$errors->first('parent_category_id')" />
-                                    </div>
+                                    <!--end::Col-->
                                 </div>
                             </div>
                             <div class="modal-footer mt-5 gap-2">
@@ -73,6 +71,22 @@
             </form>
         </div>
         <!--end:::Main-->
+        @section('js')
+
+
+        <script>
+            $(function() {
+                // Summernote
+                $('textarea').summernote({
+                    height: '200px',
+                    tabsize: 2
+
+                });
+            });
+        </script>
+
+
+        @endsection
     </x-slot>
     <x-slot name="footer">
         <x-layout.footer />

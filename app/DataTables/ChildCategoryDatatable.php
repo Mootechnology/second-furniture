@@ -43,7 +43,7 @@ class ChildCategoryDatatable extends DataTable
      */
     public function query(ChildCategory $model): QueryBuilder
     {
-        return $model->newQuery()->select('id', 'name', 'parent_category_id');
+        return $model->newQuery()->select('id', 'name','slug', 'parent_category_id');
     }
 
     /**
@@ -76,6 +76,7 @@ class ChildCategoryDatatable extends DataTable
             Column::make('id'),
             Column::make('image'),
             Column::make('name'),
+            Column::make('slug'),
             Column::make('parent_category_id')->title('Parent Category')
         ];
 
