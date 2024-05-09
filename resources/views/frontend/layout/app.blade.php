@@ -60,11 +60,24 @@
                                         <a class="dropdown-item " href="{{ route('web.parentcategory') }}">All Categories</a>
 
                                         @foreach(\App\Models\ParentCategory::get() as $parentCategory)
-                                        <div class="dropdown-submenu">
 
+                                        <div class="dropdown-submenu">
+                                            @php
+                                            $hasChildCategories = isset($parentCategory->childCategories) && $parentCategory->childCategories->isNotEmpty();
+                                            @endphp
+
+                                            @if($hasChildCategories)
+                                            <!-- Link to category page -->
                                             <a class="dropdown-item dropdown-toggle" href="{{ route('web.category', ['id' => $parentCategory->id]) }}" id="navbarDropdown{{ $parentCategory->id }}">
                                                 {{ $parentCategory->name }}
                                             </a>
+                                            @else
+                                            <!-- Link to product page -->
+                                            <a class="dropdown-item" href="{{ route('web.productByParent', ['id' => $parentCategory->id]) }}" id="navbarDropdown{{ $parentCategory->id }}">
+                                                {{ $parentCategory->name }}
+                                            </a>
+                                            @endif
+
                                             <div class="dropdown-menu" aria-labelledby="navbarDropdown{{ $parentCategory->id }}">
                                                 @foreach ($parentCategory->childCategories as $childCategory)
                                                 <a class="dropdown-item" href="{{ route('web.category', ['id' => $childCategory->id]) }}">

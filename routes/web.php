@@ -35,6 +35,7 @@ Route::controller(DefaultController::class)
             Route::get('/', 'index')->name('index');
             Route::get('parentcategory', 'parentCategory')->name('parentcategory');
             Route::get('childCategory/{id}', 'category')->name('category');
+            Route::get('productBychild/{id}', 'productBychild')->name('web.productBychild')
             Route::view('/about', 'frontend.about')->name('about');
             Route::view('/allproducts', 'frontend.allproducts')->name('allproducts');
             Route::view('/cart', 'frontend.cart')->name('cart');
@@ -43,7 +44,7 @@ Route::controller(DefaultController::class)
             Route::view('/faq', 'frontend.faq')->name('faq');
             Route::view('/single-product', 'frontend.single-product')->name('single-product');
             Route::view('/wishlist', 'frontend.wishlist')->name('wishlist');
-
+        Route::get('/productByParent/{id}', 'productByParent')->name('productByParent');
         });
 Route::controller(AuthController::class)
     ->prefix('auth')

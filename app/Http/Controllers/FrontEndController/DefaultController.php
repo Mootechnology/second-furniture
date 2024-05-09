@@ -30,32 +30,53 @@ class DefaultController extends Controller
     public function parentCategory()
     {
         $parentCategories = ParentCategory::orderBy('created_at', 'desc')->get();
-        $product = Product::get()->random(4);
-        $childCategories = '';
+        $products = Product::inRandomOrder()->limit(4)->get(); // Use inRandomOrder() instead of get()->random(4)
 
         return view('frontend.Categories')->with([
-            'products' => $product,
+            'products' => $products,
             'parentCategories' => $parentCategories,
-            'childCategories' => $childCategories
+            'childCategories' => null, // Set childCategories to null or an empty array initially
         ]);
-
-
     }
 
-    // Child Cate by Parent Category
-
-    public function category(Request $request){
-
+    public function category(Request $request)
+    {
+        $parentCategory = parentCategory::where('id', $request->id)->get();
         $childCategory = ChildCategory::where('parent_category_id', $request->id)->get();
-
-        $product = Product::where('parent_category_id', $request->id)->get()->random(4);
+        $products = Product::where('parent_category_id', $request->id)->inRandomOrder()->limit(4)->get(); // Use inRandomOrder() instead of get()->random(4)
 
         return view('frontend.Categories')->with([
-            'products' => $product,
+            'parentCategory' => $parentCategory,
+            'products' => $products,
             'childCategories' => $childCategory,
-
+            'parentCategories' => null, // Set parentCategories to null here
         ]);
-
     }
+
+    //   Product By ParentCategory
+
+  public function productByParent(Request $request)
+{
+    $categoryId = $request->id;
+
+        // Fetch the parent category
+        $category = ParentCategory::findOrFail($categoryId);
+
+        // Fetch products associated with the parent category using pagination
+        $products = Product::where('parent_category_id', $categoryId)
+            ->orderBy('created_at', 'desc')
+            ->paginate(10); // Paginate with 10 products per page
+    // Fetch related products (example: fetching 10 latest products)
+    $relatedProducts = Product::orderBy('created_at', 'desc')
+                              ->limit(10)
+                              ->get();
+
+    return view('frontend.productByCategory')->with([
+        'products' => $products,
+        'relatedProduct' => $relatedProducts,
+        'category' => $category,
+    ]);
+}
+
 
 }

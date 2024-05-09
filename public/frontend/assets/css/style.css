@@ -69,7 +69,7 @@ i {
     font-weight: 400;
     margin-bottom: 1em;
     line-height: 1.5;
-    text-align: center;  
+    text-align: center;
 }
 
 .connections {
@@ -129,7 +129,7 @@ i {
   .slider-banner-btn {
     padding: 15px 5px;
   }
-  
+
   .slider-banner-btn-div {
     position: absolute;
     top: 62%;
@@ -154,7 +154,7 @@ i {
   .mycrousel {
     margin-top: 72px;
   }
-  
+
   .slider-banner-btn-div {
     position: absolute;
     top: 64%;
@@ -168,7 +168,7 @@ i {
 }
 
 @media (max-width: 698px) {
-  
+
   .slider-banner-btn {
     padding: 10px;
   }
@@ -179,7 +179,7 @@ i {
     font-size: 12px;
     padding: 5px 5px;
   }
-  
+
   .slider-banner-btn-div {
     position: absolute;
     top: 65%;
@@ -250,7 +250,7 @@ i {
     font-size: 10px;
     padding: 5px 5px;
   }
-  
+
   .slider-banner-btn-div {
     position: absolute;
     top: 67%;
@@ -302,13 +302,13 @@ i {
   background-color: #f7f6f7;
 }
 .returning-customer a{
-  text-decoration: none; 
-  color: var(--textColor); 
+  text-decoration: none;
+  color: var(--textColor);
   font-weight: 700;
 }
 .returning-customer a:hover{
-  text-decoration: none; 
-  color: var(--bgColor); 
+  text-decoration: none;
+  color: var(--bgColor);
   font-weight: 700;
 }
 
@@ -3034,7 +3034,7 @@ ul {
 }
 
 @media (max-width: 375px){
- 
+
   .single_product_item img{
     height: 220px;
   }
@@ -3299,7 +3299,7 @@ ul {
   .l_w_title h3, .p_filter_widgets h3{
     font-size: 13px !important;
     font-weight: 700;
- } 
+ }
 
  .my_range{
   font-size: 13px !important;
@@ -3753,7 +3753,7 @@ ul {
 
 
 .p_filter_widgets .list li {
-  margin-bottom: 18px;
+  margin-bottom: 4px;
 }
 
 
@@ -8083,14 +8083,14 @@ h6 {
 }
 
 .social-icons a {
-  color: #29384B; 
-  font-size: 24px; 
+  color: #29384B;
+  font-size: 24px;
   text-decoration: none;
-  transition: color 0.3s; 
+  transition: color 0.3s;
 }
 
 .social-icons a:hover {
-  color: #007BFF; 
+  color: #007BFF;
 }
 
 .contact-form-section form {
@@ -8188,7 +8188,7 @@ h6 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-@media (max-width: 778px){ 
+@media (max-width: 778px){
   .top-banner{
     margin-top: 72px;
   }
@@ -8457,7 +8457,7 @@ iframe{
 
 input[id^="exampleFormControlInput1"] {
   border: none;
-  border-bottom: 1px solid #dfe3e7; 
+  border-bottom: 1px solid #dfe3e7;
   outline: none;
 }
 
@@ -8548,7 +8548,7 @@ input[id^="exampleFormControlInput1"] {
 }
 
 .total_price{
- margin-top: 18px; 
+ margin-top: 18px;
 }
 
 .product_details, .product_details p small {

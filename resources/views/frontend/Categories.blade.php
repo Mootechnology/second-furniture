@@ -27,8 +27,10 @@
     <div class="top-banner-img">
         <img src="{{asset('./frontend/assets/images/breadcrumb1.png')}}" alt="Banner" class="img-fluid">
         <div class="text-container">
-            <h2>Cart</h2>
-            <p><a href="index.html"> Home </a>> Cart</p>
+            @foreach($parentCategory as $parent)
+            <h2>{{$parent->name}}</h2>
+            <p><a href="{{url('/')}}"> Home </a>> {{$parent->name}}</p>
+            @endforeach
         </div>
     </div>
 </section>
@@ -39,27 +41,29 @@
 </div>
 
 <div class="container-fluid d-flex row">
-    @if($childCategories->isNotEmpty())
-        <!-- Display child categories with images -->
-        @foreach($childCategories as $category)
-            @php
-                $imageUrl = $category->getFirstMediaUrl('childCategory.image');
-            @endphp
-            <div class="col-md-2 col-5 p-2 bg-image text-center d-flex justify-content-center align-items-center" style="background-image: url('{{ $imageUrl }}'); height: 20vh; margin: 10px; background-size: cover;">
-                <a class="text-black">{{ $category->name }}</a>
-            </div>
-        @endforeach
-    @else
-        <!-- Display parent categories with images from child categories -->
-        @foreach($parentCategories as $category)
-            @php
-                $childCategoryWithImage = $category->childCategories()->whereHas('media')->first();
-                $imageUrl = $childCategoryWithImage ? $childCategoryWithImage->getFirstMediaUrl('childCategory.image') : null;
-            @endphp
-            <div class="col-md-2 col-5 p-2 bg-image text-center d-flex justify-content-center align-items-center" style="background-image: url('{{ $imageUrl }}'); height: 20vh; margin: 10px; background-size: cover;">
-                <a class="text-black">{{ $category->name }}</a>
-            </div>
-        @endforeach
+    @if(isset($childCategories) && $childCategories->isNotEmpty())
+    <!-- Display child categories with images -->
+    @foreach($childCategories as $category)
+    @php
+    $imageUrl = $category->getFirstMediaUrl('childCategory.image');
+    @endphp
+    <div class="col-md-2 col-5 p-2 bg-image text-center d-flex justify-content-center align-items-center" style="background-image: url('{{ $imageUrl }}'); height: 20vh; margin: 10px; background-size: cover;">
+        <a class="text-black" href="{{ route('web.productBychild', ['id' => $category->id]) }}">{{ $category->name }}</a>
+    </div>
+    @endforeach
+    @endif
+
+    @if(isset($parentCategories) && $parentCategories->isNotEmpty())
+    <!-- Display parent categories with images from child categories -->
+    @foreach($parentCategories as $category)
+    @php
+    $childCategoryWithImage = $category->childCategories()->whereHas('media')->first();
+    $imageUrl = $childCategoryWithImage ? $childCategoryWithImage->getFirstMediaUrl('childCategory.image') : null;
+    @endphp
+    <div class="col-md-2 col-5 p-2 bg-image text-center d-flex justify-content-center align-items-center" style="background-image: url('{{ $imageUrl }}'); height: 20vh; margin: 10px; background-size: cover;">
+        <a class="text-black">{{ $category->name }}</a>
+    </div>
+    @endforeach
     @endif
 </div>
 
