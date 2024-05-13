@@ -35,7 +35,7 @@ Route::controller(DefaultController::class)
             Route::get('/', 'index')->name('index');
             Route::get('parentcategory', 'parentCategory')->name('parentcategory');
             Route::get('childCategory/{id}', 'category')->name('category');
-            Route::get('productBychild/{id}', 'productBychild')->name('web.productBychild')
+            Route::get('productBychild/{slug}', 'productBychild')->name('productBychild');
             Route::view('/about', 'frontend.about')->name('about');
             Route::view('/allproducts', 'frontend.allproducts')->name('allproducts');
             Route::view('/cart', 'frontend.cart')->name('cart');

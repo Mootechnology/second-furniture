@@ -48,7 +48,8 @@
     $imageUrl = $category->getFirstMediaUrl('childCategory.image');
     @endphp
     <div class="col-md-2 col-5 p-2 bg-image text-center d-flex justify-content-center align-items-center" style="background-image: url('{{ $imageUrl }}'); height: 20vh; margin: 10px; background-size: cover;">
-        <a class="text-black" href="{{ route('web.productBychild', ['id' => $category->id]) }}">{{ $category->name }}</a>
+          <!-- #region -->
+        <!-- <a class="text-black" href="{{ route('web.productBychild', ['slug' => $category->slug]) }}">{{ $category->name }}</a> -->
     </div>
     @endforeach
     @endif
