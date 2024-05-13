@@ -5,12 +5,12 @@
     <!-- START:: TOP Banner -->
     <section class="top-banner">
       <div class="top-banner-img">
-        <img src="{{asset('./assets/images/breadcrumb1.png')}}" alt="Banner" class="img-fluid">
+        <img src="{{asset('./frontend/assets/images/breadcrumb1.png')}}" alt="Banner" class="img-fluid">
         <div class="text-container">
           <h2>Checkout</h2>
           <p><a href="index.html"> Home </a>> <a href="shop.html"> Shop </a> > Checkout</p>
         </div>
-      </div>       
+      </div>
     </section>
     <!-- END:: TOP Banner -->
 
@@ -18,16 +18,16 @@
     <section class="customer-and-cupon px-5 mt-3">
       <!-- Coupen -->
       <div class="container-fluid returning-customer p-2 mt-3">
-        <p> <i class="fa-regular fa-file"></i> Have a Coupon? <a href="login.html">Click Here to Enter Your Code</a></p> 
+        <p> <i class="fa-regular fa-file"></i> Have a Coupon? <a href="login.html">Click Here to Enter Your Code</a></p>
       </div>
     </section>
     <!-- END: Customer and Cupon bar -->
-    
+
     <!-- START: Checkout form -->
     <section class="checkout-form mt-5 mb-5">
       <div class="container-fluid px-5">
         <div class="row">
-          
+
           <!-- Billing Details -->
           <div class="col-md-12 col-lg-6">
             <h2>Billing Details</h2>
@@ -88,7 +88,7 @@
                 <label for="exampleFormControlInput1" class="form-label">Email <span style="color: red;">*</span></label>
                 <input style="color: black;" type="email" class="form-control" id="exampleFormControlInput1" required>
               </div>
-              
+
               <!-- Create Account -->
               <div class="create-account">
                 <div class="form-check">
@@ -114,7 +114,7 @@
                     <strong>Shipment to different address</strong>
                   </label>
                 </div>
-               
+
                 <section class="shipment-form" id="createShipmentForm" style="display: none;">
                   <div class="mb-3 mt-3">
                     <!-- last name -->
@@ -181,10 +181,10 @@
             </form>
           </div>
           <!-- Billing Details -->
-          
+
           <!-- Your Order -->
           <div class="col-md-12 col-lg-6" id="checkout-data">
-            
+
             <h2>Your Order</h2>
             <!-- Checkout data -->
             <div class="checkout-data p-2" style="background-color: #f5f5f5;">
@@ -201,7 +201,7 @@
                                   <hr>
                                   <div class="subtotal"><span>Subtotle</span></div>
                                   <hr>
-                                  <div style="margin-bottom: 53px;"><span>Shipping</span></div>  
+                                  <div style="margin-bottom: 53px;"><span>Shipping</span></div>
                                   <hr>
                                   <div><span>Total</span></div>
                                 </p>
@@ -221,7 +221,7 @@
                                       <input type="radio" name="free-ship" id="free-ship">
                                       <label>Free Ship</label>
                                     </div>
-                                    
+
                                     <div>
                                       <input type="radio" name="flat-rate" id="flat-rate">
                                       <label>Flat Rate</label>
@@ -263,10 +263,10 @@
               <div class="input-group-append">
                   <a href="#" class="btn_3" id="basic-addon2">Place Order</a>
               </div>
-            </div> -->  
+            </div> -->
             </div>
             <!-- Checkout data -->
-           
+
           </div>
         </div>
       </div>
@@ -296,4 +296,3 @@
     @endsection
     @section('customJs')
     @endsection
-   

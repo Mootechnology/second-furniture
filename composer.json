@@ -1,15 +1,34 @@
 {
-    "name": "laravel/laravel",
+    "name": "centosquare/centodash",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "This project provide laravel starter kit.",
+    "keywords": ["framework", "laravel", "starterkit","laravel-starterkit","kit","dashboard","admin dashboard","website"],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "CentoSquare",
+            "email": "developments@centosquare.com"
+        },
+        {
+            "name": "Muhammad Waqas",
+            "email": "mwaqasiu@gmail.com"
+        }
+    ],
     "require": {
         "php": "^8.0.2",
+        "barryvdh/laravel-snappy": "^1.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "livewire/livewire": "^2.10",
+        "maatwebsite/excel": "^3.1",
+        "psr/simple-cache": "2.0",
+        "spatie/laravel-permission": "^5.6",
+        "yajra/laravel-datatables": "9.0",
+        "yajra/laravel-datatables-html": "9.0",
+        "spatie/laravel-medialibrary": "10.0.7",
+        "spatie/laravel-permission": "^5.6"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -60,6 +79,6 @@
             "pestphp/pest-plugin": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }

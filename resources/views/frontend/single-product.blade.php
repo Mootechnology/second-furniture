@@ -5,12 +5,12 @@
     <!-- START:: TOP Banner -->
     <section class="top-banner">
         <div class="top-banner-img">
-          <img src="{{asset('./assets/images/breadcrumb1.png')}}" alt="Banner" class="img-fluid">
+          <img src="{{asset('./frontend/assets/images/breadcrumb1.png')}}" alt="Banner" class="img-fluid">
           <div class="text-container">
             <h2>Product Details</h2>
             <p><a href="index.html"> Home </a>> Product Details</p>
           </div>
-        </div>       
+        </div>
       </section>
       <!-- END:: TOP Banner -->
 
@@ -21,17 +21,17 @@
             <div class="col-lg-7 col-xl-7">
               <div class="product_slider_img">
                 <div id="vertical">
-                  <div data-thumb="{{asset('assets/images/product/single-product/product_1.png')}}">
-                    <img src="{{asset('assets/images/product/single-product/product_1.png')}}" />
+                  <div data-thumb="{{asset('frontend/assets/images/product/single-product/product_1.png')}}">
+                    <img src="{{asset('frontend/assets/images/product/single-product/product_1.png')}}" />
                   </div>
-                  <div data-thumb="{{asset('assets/images/product/single-product/product_1.png')}}">
-                    <img src="{{asset('assets/images/product/single-product/product_1.png')}}" />
+                  <div data-thumb="{{asset('frontend/assets/images/product/single-product/product_1.png')}}">
+                    <img src="{{asset('frontend/assets/images/product/single-product/product_1.png')}}" />
                   </div>
-                  <div data-thumb="{{asset('assets/images/product/single-product/product_1.png')}}">
-                    <img src="{{asset('assets/images/product/single-product/product_1.png')}}" />
+                  <div data-thumb="{{asset('frontend/assets/images/product/single-product/product_1.png')}}">
+                    <img src="{{asset('frontend/assets/images/product/single-product/product_1.png')}}" />
                   </div>
-                  <div data-thumb="{{asset('assets/images/product/single-product/product_1.png')}}">
-                    <img src="{{asset('assets/images/product/single-product/product_1.png')}}" />
+                  <div data-thumb="{{asset('frontend/assets/images/product/single-product/product_1.png')}}">
+                    <img src="{{asset('frontend/assets/images/product/single-product/product_1.png')}}" />
                   </div>
                 </div>
               </div>
@@ -201,7 +201,7 @@
                   <div class="review_item">
                     <div class="media">
                       <div class="d-flex">
-                        <img src="{{asset('assets/images/product/single-product/review-1.png')}}" alt="" />
+                        <img src="{{asset('frontend/assets/images/product/single-product/review-1.png')}}" alt="" />
                       </div>
                       <div class="media-body">
                         <h4>Blake Ruiz</h4>
@@ -218,7 +218,7 @@
                   <div class="review_item reply">
                     <div class="media">
                       <div class="d-flex">
-                        <img src="{{asset('assets/images/product/single-product/review-2.png')}}" alt="" />
+                        <img src="{{asset('frontend/assets/images/product/single-product/review-2.png')}}" alt="" />
                       </div>
                       <div class="media-body">
                         <h4>Blake Ruiz</h4>
@@ -235,7 +235,7 @@
                   <div class="review_item">
                     <div class="media">
                       <div class="d-flex">
-                        <img src="{{asset('assets/images/product/single-product/review-3.png')}}" alt="" />
+                        <img src="{{asset('frontend/assets/images/product/single-product/review-3.png')}}" alt="" />
                       </div>
                       <div class="media-body">
                         <h4>Blake Ruiz</h4>
@@ -350,7 +350,7 @@
                   <div class="review_item">
                     <div class="media">
                       <div class="d-flex">
-                        <img src="{{asset('assets/images/product/single-product/review-1.png')}}" alt="" />
+                        <img src="{{asset('frontend/assets/images/product/single-product/review-1.png')}}" alt="" />
                       </div>
                       <div class="media-body">
                         <h4>Blake Ruiz</h4>
@@ -371,7 +371,7 @@
                   <div class="review_item">
                     <div class="media">
                       <div class="d-flex">
-                        <img src="{{asset('assets/images/product/single-product/review-2.png')}}" alt="" />
+                        <img src="{{asset('frontend/assets/images/product/single-product/review-2.png')}}" alt="" />
                       </div>
                       <div class="media-body">
                         <h4>Blake Ruiz</h4>
@@ -392,7 +392,7 @@
                   <div class="review_item">
                     <div class="media">
                       <div class="d-flex">
-                        <img src="{{asset('assets/images/product/single-product/review-3.png')}}" alt="" />
+                        <img src="{{asset('frontend/assets/images/product/single-product/review-3.png')}}" alt="" />
                       </div>
                       <div class="media-body">
                         <h4>Blake Ruiz</h4>
@@ -479,7 +479,7 @@
       </div>
     </section>
   <!-- END: Tabs Section -->
-  
+
   <!-- START:: Best Seller Product Slider -->
   <section class="product_list best_seller">
     <div class="container">
@@ -494,35 +494,35 @@
             <div class="col-lg-12">
                 <div class="best_product_slider owl-carousel">
                     <div class="single_product_item">
-                        <img src="{{asset('assets/images/product/product_1.png')}}" alt="">
+                        <img src="{{asset('frontend/assets/images/product/product_1.png')}}" alt="">
                         <div class="single_product_text">
                             <h4>Quartz Belt Watch</h4>
                             <h3>$150.00</h3>
                         </div>
                     </div>
                     <div class="single_product_item">
-                        <img src="{{asset('assets/images/product/product_2.png')}}" alt="">
+                        <img src="{{asset('frontend/assets/images/product/product_2.png')}}" alt="">
                         <div class="single_product_text">
                             <h4>Quartz Belt Watch</h4>
                             <h3>$150.00</h3>
                         </div>
                     </div>
                     <div class="single_product_item">
-                        <img src="{{asset('assets/images/product/product_3.png')}}" alt="">
+                        <img src="{{asset('frontend/assets/images/product/product_3.png')}}" alt="">
                         <div class="single_product_text">
                             <h4>Quartz Belt Watch</h4>
                             <h3>$150.00</h3>
                         </div>
                     </div>
                     <div class="single_product_item">
-                        <img src="{{asset('assets/images/product/product_4.png')}}" alt="">
+                        <img src="{{asset('frontend/assets/images/product/product_4.png')}}" alt="">
                         <div class="single_product_text">
                             <h4>Quartz Belt Watch</h4>
                             <h3>$150.00</h3>
                         </div>
                     </div>
                     <div class="single_product_item">
-                        <img src="{{asset('assets/images/product/product_5.png')}}" alt="">
+                        <img src="{{asset('frontend/assets/images/product/product_5.png')}}" alt="">
                         <div class="single_product_text">
                             <h4>Quartz Belt Watch</h4>
                             <h3>$150.00</h3>

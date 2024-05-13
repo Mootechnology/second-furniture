@@ -8,12 +8,12 @@
     <!-- START:: TOP Banner -->
     <section class="top-banner">
       <div class="top-banner-img">
-        <img src="{{ asset('./assets/images/breadcrumb1.png')}}" alt="Banner" class="img-fluid">
+        <img src="{{ asset('.frontend/assets/images/breadcrumb1.png')}}" alt="Banner" class="img-fluid">
         <div class="text-container">
           <h2>About</h2>
           <p><a href="index.html"> Home </a>> About</p>
         </div>
-      </div>       
+      </div>
     </section>
     <!-- END:: TOP Banner -->
 
@@ -21,7 +21,7 @@
     <section class="about-section mb-5">
       <!-- Logo -->
       <div class="container about-container text-center mt-4">
-        <img src="{{ asset('assets//images/logo2.png')}}" alt="Logo" class="logo">
+        <img src="{{ asset('frontend/assets//images/logo2.png')}}" alt="Logo" class="logo">
         <h3>The Future of WoodWorth</h3>
         <h5>GETTING BETTER AND BETTER - TOGETHER</h5>
       </div>
@@ -30,7 +30,7 @@
       <div class="second-banner mt-5 mb-5">
         <div class="container">
           <!-- Add the "image-hover" class to the images you want to have the hover effect -->
-          <img src="{{ asset('assets//images/about1-1.jpg.webp')}}" class="image-hover">
+          <img src="{{ asset('frontend/assets//images/about1-1.jpg.webp')}}" class="image-hover">
         </div>
       </div>
 
@@ -39,7 +39,7 @@
         <div class="row">
           <div class="col-md-6">
             <!-- "image-hover" class to the images you want to have the hover effect -->
-            <img src="{{ asset('assets//images/about1-2-1.jpg.webp')}}" alt="Picture" class="img-fluid image-hover">
+            <img src="{{ asset('frontend/assets//images/about1-2-1.jpg.webp')}}" alt="Picture" class="img-fluid image-hover">
           </div>
           <div class="col-md-6 mt-3">
             <h6 style="color: #29384B;">WE DESIGN FURNITURE</h6>
@@ -67,13 +67,13 @@
               Sed cursus turpis vitae tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
               cubilia Curae; Fusce id purus.In consectetuer turpis ut velit. Suspendisse feugiat. Nam quam nunc, blandit
               vel, luctus pulvinar, hendrerit id, lorem. Fusce neque. Nam commodo suscipit quam.
-    
+
               Suspendisse feugiat. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Fusce neque. Nam
               commodo suscipit quam.</p>
           </div>
           <div class="col-md-6">
             <!-- Add the "image-hover" class to the images you want to have the hover effect -->
-            <img src="{{ asset('assets///images/about1-3.jpg.webp')}}" alt="Picture" class="img-fluid image-hover">
+            <img src="{{ asset('frontend/assets///images/about1-3.jpg.webp')}}" alt="Picture" class="img-fluid image-hover">
           </div>
         </div>
       </div>
